@@ -1,0 +1,175 @@
+import java.text.SimpleDateFormat
+
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+//apply plugin: 'kotlin-android-extensions'
+def cfg = rootProject.ext.android
+android {
+    compileSdk 32
+
+    defaultConfig {
+        applicationId "net.sgztech.timeboat"
+        minSdk cfg.minSdkVersion
+        targetSdk cfg.targetSdkVersion
+        versionCode cfg.versionCode//更新次数
+        versionName cfg.versionName//版本号
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [moduleName: project.getName()]
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+            }
+        }
+    }
+
+    signingConfigs {
+        def keystorePropertiesFile = rootProject.file("app/keystore.properties")
+        def keystoreProperties = new Properties()
+        keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+
+        debug {
+            println("======== debug mode: set key ========")
+            storeFile file(keystoreProperties['storeFile'])
+            println("======== debug mode: set storeFile ========" +keystoreProperties['storeFile'])
+            storePassword keystoreProperties['storePassword']
+            println("======== debug mode: set storePassword ========" +keystoreProperties['storePassword'])
+            keyAlias keystoreProperties['keyAlias']
+            println("======== debug mode: set keyAlias ========" +keystoreProperties['keyAlias'])
+            keyPassword keystoreProperties['keyPassword']
+            println("======== debug mode: set keyPassword ========" +keystoreProperties['keyPassword'])
+        }
+
+        release {
+            println("======== release mode: set key ========")
+            storeFile file(keystoreProperties['storeFile'])
+            println("======== release mode: set storeFile ========" +keystoreProperties['storeFile'])
+            storePassword keystoreProperties['storePassword']
+            println("======== release mode: set storePassword ========" +keystoreProperties['storePassword'])
+            keyAlias keystoreProperties['keyAlias']
+            println("======== release mode: set keyAlias ========" +keystoreProperties['keyAlias'])
+            keyPassword keystoreProperties['keyPassword']
+            println("======== release mode: set keyPassword ========" +keystoreProperties['keyPassword'])
+        }
+    }
+
+    buildTypes {
+        debug {
+            versionNameSuffix "-debug"
+            minifyEnabled false
+            zipAlignEnabled false
+            shrinkResources false
+            signingConfig signingConfigs.debug
+        }
+        release {
+            //混淆
+            minifyEnabled true
+            //Zipalign优化
+            zipAlignEnabled true
+            // 移除无用的resource文件
+            shrinkResources true
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+//    lint {
+//        baseline = file("lint-baseline.xml")
+//    }
+
+    applicationVariants.all { variant ->
+        variant.outputs.all {
+            if (variant.name.equalsIgnoreCase('release')) {
+                outputFileName = getOutputFileFullName()
+            }
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        viewBinding true
+    }
+
+}
+
+String getOutputFileFullName() {
+    def df = new SimpleDateFormat("yyyyMMdd")
+    String dateString = df.format(new Date())
+    String versionName = project.android.defaultConfig.versionName
+
+    // "sw_package_all_server_${dateString}_${versionName}.apk"
+    return "sw_app_android_sgz_${versionName}.apk"
+}
+
+dependencies {
+    implementation 'com.android.support:support-v4:32.0.0'
+    implementation 'androidx.core:core-ktx:1.8.0'
+    implementation 'androidx.appcompat:appcompat:1.3.1'
+    implementation 'com.google.android.material:material:1.4.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.3.1'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.0'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.5'
+    implementation "androidx.activity:activity-ktx:1.5.0"
+    implementation "androidx.fragment:fragment-ktx:1.5.0"
+    implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
+    // RxJava
+    implementation rootProject.ext.dependencies.rxjava
+    implementation rootProject.ext.dependencies.rxandroid
+    implementation 'io.reactivex.rxjava2:rxkotlin:2.4.0'
+
+    implementation 'com.github.tbruyelle:rxpermissions:0.12'
+//    implementation rootProject.ext.dependencies.adapterHelper
+    // 下拉刷新
+//    implementation  'io.github.scwang90:refresh-layout-kernel:2.0.5'      //核心必须依赖
+//    implementation  'io.github.scwang90:refresh-header-classics:2.0.5'    //经典刷新头
+//    implementation  'io.github.scwang90:refresh-footer-classics:2.0.5'    //经典加载
+//    implementation  'io.github.scwang90:refresh-layout:2.0.5'      //核心必须依赖
+
+    implementation project(path: ':refresh-layout-kernel')
+    implementation project(path: ':refresh-header-classics')
+    implementation project(path: ':refresh-footer-classics')
+    implementation project(path: ':refresh-drawable-paint')
+    implementation rootProject.ext.dependencies.recyclerview
+
+    // Replaying share
+    implementation rootProject.ext.dependencies.rxjava_replayingshare
+//    implementation rootProject.ext.dependencies.MP_Anroid_Chart
+//    implementation  rootProject.ext.dependencies.stdlibJdk8
+    //fastjson 解析 kotlin 需要使用
+    implementation  rootProject.ext.dependencies.kotlinReflect
+
+    implementation  rootProject.ext.dependencies.eventBus3
+
+    implementation project(path: ':rxble')
+    implementation project(path: ':viewBinding')
+    implementation project(path: ':MPChartLib')
+    implementation 'androidx.viewpager2:viewpager2:1.0.0'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+//    implementation  'org.apache.commons:commons-lang3:3.4'
+    implementation project(':library:okHttplibrary')
+    implementation project(path: ':library:utilslibrary')
+//    implementation project(':library:utilslibrary')
+    kapt 'com.alibaba:arouter-compiler:1.5.1'
+    implementation 'com.tencent.mm.opensdk:wechat-sdk-android:+'
+
+
+
+    implementation 'io.netty:netty-all:4.1.0.Final'
+
+    implementation 'com.github.bumptech.glide:glide:4.13.2'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.13.2'
+
+}

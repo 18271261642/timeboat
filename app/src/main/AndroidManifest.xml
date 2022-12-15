@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="net.sgztech.timeboat">
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+
+<!--    <uses-permission-->
+<!--        android:name="android.permission.BLUETOOTH"-->
+<!--        android:maxSdkVersion="30" />-->
+<!--    <uses-permission-->
+<!--        android:name="android.permission.BLUETOOTH_ADMIN"-->
+<!--        android:maxSdkVersion="30" />-->
+    <!-- required for API 23 - 30, no android:maxSdkVersion because of a potential breaking change -->
+    <!-- TODO: add android:maxSdkVersion on 2.0.0 -->
+    <uses-permission-sdk-23 android:name="android.permission.ACCESS_COARSE_LOCATION" />
+<!--    <uses-permission-sdk-23 android:name="android.permission.ACCESS_FINE_LOCATION" />-->
+
+    <!-- API 31+ -->
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+    <uses-permission
+        android:name="android.permission.BLUETOOTH_SCAN"
+        android:usesPermissionFlags="neverForLocation"
+        tools:targetApi="s" />
+
+    <application
+        android:name=".TimeBoatApplication"
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:requestLegacyExternalStorage="true"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Glx"
+        tools:targetApi="31">
+        <activity
+            android:name=".ui.activity.SplashActivity"
+            android:exported="true"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="net.sgztech.timeboat.ui.activity.ScanActivity"
+            android:launchMode="singleTask">
+        </activity>
+
+        <activity
+            android:name="net.sgztech.timeboat.ui.activity.MainActivity"
+            android:launchMode="singleTask">
+        </activity>
+
+        <activity
+            android:name="net.sgztech.timeboat.ui.activity.SettingActivity"
+            android:launchMode="singleTask">
+        </activity>
+
+        <activity
+            android:name="net.sgztech.timeboat.ui.activity.BleCommandActivity"
+            android:launchMode="singleTask">
+        </activity>
+
+        <activity
+            android:name="net.sgztech.timeboat.ui.activity.WebViewActivity"
+            android:launchMode="singleTask">
+        </activity>
+
+
+
+        <activity
+            android:name="net.sgztech.timeboat.ui.activity.UserAccountActivity"
+            android:launchMode="singleTask">
+        </activity>
+
+        <activity
+            android:name="net.sgztech.timeboat.ui.activity.ImproveInformationActivity"
+            android:launchMode="singleTask">
+        </activity>
+
+        <activity
+            android:name="net.sgztech.timeboat.ui.activity.WalkDataActivity"
+            android:launchMode="singleTask">
+        </activity>
+
+        <activity
+            android:name="net.sgztech.timeboat.ui.activity.AllSportDataActivity"
+            android:launchMode="singleTask">
+        </activity>
+
+
+
+        <activity
+            android:name="net.sgztech.timeboat.ui.activity.CancelAgreeSureActivity"
+            android:launchMode="singleTask">
+        </activity>
+
+        <activity
+            android:name="net.sgztech.timeboat.ui.activity.DelDeviceActivity"
+            android:launchMode="singleTask">
+        </activity>
+
+        <activity
+            android:name="net.sgztech.timeboat.ui.activity.SingleSportDataListActivity"
+            android:launchMode="singleTask">
+        </activity>
+
+
+        <activity
+            android:name="net.sgztech.timeboat.ui.activity.CancelAgreeActivity"
+            android:launchMode="singleTask">
+        </activity>
+
+        <activity
+            android:name="net.sgztech.timeboat.ui.activity.AboutActivity"
+            android:launchMode="singleTask">
+        </activity>
+
+
+        <activity android:name=".ui.activity.BloodOxDataActivity"
+            android:launchMode="singleTask">
+        </activity>
+        <activity android:name=".ui.activity.HeatRtOrTempActivity"
+            android:launchMode="singleTask">
+
+        </activity>
+
+        <activity android:name=".ui.activity.SleepDataActivity"
+            android:launchMode="singleTask">
+        </activity>
+
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:exported="true"
+            android:taskAffinity="net.sgztech.timeboat"
+            android:launchMode="singleTask">
+        </activity>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="net.sgztech.timeboat.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_path"
+                tools:replace="android:resource"/>
+        </provider>
+
+    </application>
+
+    <!--        // 在应用的 AndroidManifest.xml 添加如下<queries>标签-->
+    <queries>
+        <package android:name="com.tencent.mm" />
+    </queries>
+
+
+
+
+</manifest>

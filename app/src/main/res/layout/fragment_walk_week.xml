@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@color/ble_main_bg"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/select_date_layout"
+        layout="@layout/select_date_layout" />
+
+
+
+    <net.sgztech.timeboat.ui.chart.CornerBarChart
+        android:id="@+id/walk_week_bar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/walk_data_week"
+        android:layout_below="@+id/select_date_layout" />
+
+    <LinearLayout
+        style="@style/white_corner_radius_bg"
+        android:id="@+id/walk_data_week"
+        android:layout_marginBottom="@dimen/margin_size_20"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/average_sport_describe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textSize="@dimen/sp_16"
+                android:textColor="@color/black"
+                android:text="平均步数(步)"/>
+
+            <TextView
+                android:id="@+id/average_sport_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textSize="@dimen/sp_40"
+                android:textColor="@color/colour_orange"
+                android:text="---"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/total_sport_describe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textSize="@dimen/sp_16"
+                android:textColor="@color/black"
+                android:text="总步数(步)"/>
+
+            <TextView
+                android:id="@+id/total_sport_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textSize="@dimen/sp_40"
+                android:textColor="@color/colour_orange"
+                android:text="---"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

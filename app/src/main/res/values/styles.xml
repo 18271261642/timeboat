@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="AnimBottom" parent="@android:style/Animation">
+        <item name="android:windowEnterAnimation">@anim/push_bottom_in</item>
+        <item name="android:windowExitAnimation">@anim/push_bottom_out</item>
+    </style>
+
+    <!-- Base application theme. -->
+    <style name="AppBaseTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowTitleSize">0dp</item>
+    </style>
+
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!--这条属性三星s9不太兼容 系统问题-->
+        <item name="android:windowIsTranslucent">false</item>
+        <!--<item name="android:windowBackground">@android:color/transparent</item>-->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="BottomDialog" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowAnimationStyle">@style/BottomDialogAnimation</item>
+    </style>
+
+    <style name="BottomDialogAnimation">
+        <item name="android:windowEnterAnimation">@anim/push_bottom_in</item>
+        <item name="android:windowExitAnimation">@anim/push_bottom_out</item>
+    </style>
+
+
+    <style name="matchParent">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+    <style name="WapContent">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="width_match_height_wrap">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+
+    <style name="white_corner_radius_bg" parent="width_match_height_wrap">
+          <item name="android:layout_marginStart">@dimen/margin_size_15</item>
+          <item name="android:layout_marginTop">@dimen/margin_size_15</item>
+          <item name="android:layout_marginEnd">@dimen/margin_size_20</item>
+          <item name="android:paddingBottom">@dimen/margin_size_20</item>
+          <item name="android:paddingTop">@dimen/margin_size_20</item>
+          <item name="android:background">@drawable/btn_corner_white</item>
+          <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="white_to_dark_btn_bg" parent="width_match_height_wrap">
+        <item name="android:layout_gravity">center</item>
+        <item name="android:paddingTop">@dimen/margin_size_15</item>
+        <item name="android:paddingBottom">@dimen/margin_size_15</item>
+        <item name="android:paddingLeft">@dimen/margin_size_20</item>
+        <item name="android:paddingRight">@dimen/margin_size_20</item>
+        <item name="android:background">@drawable/white_to_dark_btn</item>
+    </style>
+
+    <style name="white_to_dark_btn_bg_no_padding" parent="width_match_height_wrap">
+        <item name="android:layout_gravity">center</item>
+        <item name="android:paddingLeft">@dimen/margin_size_20</item>
+        <item name="android:paddingRight">@dimen/margin_size_20</item>
+        <item name="android:background">@drawable/white_to_dark_btn</item>
+    </style>
+
+
+    <style name="TabTextSize" parent="TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <!-- 边框 -->
+        <item name="android:windowIsFloating">true</item>
+        <!-- 是否浮现在activity之上 -->
+        <item name="android:windowIsTranslucent">true</item>
+        <!-- 半透明 -->
+        <item name="android:windowNoTitle">true</item>
+        <!-- 无标题 -->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!-- 背景透明 -->
+        <item name="android:backgroundDimEnabled">true</item>
+        <!-- 模糊 -->
+    </style>
+
+    <style name="VerticalBar">
+        <item name="android:indeterminateOnly">false</item>
+        <item name="android:progressDrawable">@drawable/progress_bar_line</item>
+        <item name="android:indeterminateDrawable">@android:drawable/progress_indeterminate_horizontal</item>
+        <item name="android:minWidth">1dip</item>
+        <item name="android:maxWidth">12dip</item>
+    </style>
+
+</resources>

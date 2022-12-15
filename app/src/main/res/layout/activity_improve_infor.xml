@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/ll_root"
+    android:background="@color/ble_main_bg"
+    tools:context=".ui.activity.ImproveInformationActivity">
+
+
+    <LinearLayout
+        android:id="@+id/info_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_gravity="center"
+        android:background="@drawable/white_to_dark_orange"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="@dimen/margin_size_30">
+
+        <TextView
+            android:id="@+id/mine_page"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_marginStart="@dimen/margin_size_15"
+            android:layout_marginTop="@dimen/margin_size_15"
+            android:layout_marginEnd="@dimen/margin_size_30"
+            android:layout_marginBottom="@dimen/margin_size_15"
+            android:text="完善资料"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_28" />
+
+        <com.device.ui.widget.RoundedImageView
+            android:id="@+id/header_img"
+            android:layout_width="@dimen/margin_size_90"
+            android:layout_height="@dimen/margin_size_90"
+            android:gravity="center"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/about_app"
+            app:corner_radius="@dimen/margin_size_20">
+
+        </com.device.ui.widget.RoundedImageView>
+
+
+<!--        <TextView-->
+<!--            android:id="@+id/nick_name"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="@dimen/margin_size_5"-->
+<!--            android:text="time boat"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textSize="@dimen/sp_14">-->
+
+<!--        </TextView>-->
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/white_corner_radius_bg"
+        android:layout_below="@+id/info_layout">
+
+        <RelativeLayout
+            android:id="@+id/nick_name_layout"
+            style="@style/white_to_dark_btn_bg_no_padding">
+
+
+            <EditText
+                android:id="@+id/nick_name_iv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+                android:background="@color/white"
+                android:gravity="center"
+                android:lines="1"
+                android:paddingTop="@dimen/margin_size_15"
+                android:paddingBottom="@dimen/margin_size_15"
+                android:text="Time Boat"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp_16" />
+            <TextView
+                android:layout_alignParentStart="true"
+                android:id="@+id/nick_name_describe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/margin_size_10"
+                android:text="昵称："
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp_16" />
+
+            <ImageView
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/right_arrow"
+                />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/sex_layout"
+            style="@style/white_to_dark_btn_bg">
+
+            <TextView
+                android:layout_alignParentStart="true"
+                android:id="@+id/sex_describe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/margin_size_10"
+                android:text="性别："
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp_16" />
+
+            <TextView
+                android:id="@+id/sex"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:text="女"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp_16" />
+
+            <ImageView
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/right_arrow"
+                />
+
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/birthday_layout"
+            style="@style/white_to_dark_btn_bg">
+
+
+            <TextView
+                android:id="@+id/birthday_describe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/margin_size_10"
+                android:text="生日:"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp_16" />
+
+            <TextView
+                android:id="@+id/birthday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:text="2022-07-01"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp_16" />
+
+            <ImageView
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/right_arrow"
+                />
+
+
+        </RelativeLayout>
+        <!--        <View-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="@dimen/margin_size_1"-->
+        <!--            android:background="@color/black9">-->
+        <!--        </View>-->
+
+        <RelativeLayout
+            android:id="@+id/height_layout"
+            style="@style/white_to_dark_btn_bg">
+
+
+
+            <TextView
+                android:id="@+id/height_describe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="@dimen/margin_size_10"
+                android:text="身高:"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp_16" />
+
+
+            <TextView
+                android:id="@+id/height"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:text="170厘米"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp_16" />
+
+            <ImageView
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/right_arrow"
+                />
+
+
+        </RelativeLayout>
+
+        <!--        <View-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="@dimen/margin_size_1"-->
+        <!--            android:background="@color/black9">-->
+        <!--        </View>-->
+
+        <RelativeLayout
+            android:id="@+id/weight_layout"
+            style="@style/white_to_dark_btn_bg">
+
+
+            <TextView
+                android:id="@+id/weight_describe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="@dimen/margin_size_10"
+                android:text="体重:"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp_16" />
+
+            <TextView
+                android:id="@+id/weight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:text="60公斤"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp_16" />
+
+            <ImageView
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/right_arrow"
+                />
+
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/save_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="@dimen/margin_size_24"
+        android:layout_marginTop="@dimen/margin_size_24"
+        android:layout_marginEnd="@dimen/margin_size_24"
+        android:layout_marginBottom="@dimen/margin_size_24"
+        android:background="@drawable/btn_corner_orange"
+        android:gravity="center"
+        android:padding="@dimen/margin_size_16"
+        android:text="保存"
+        android:textColor="@color/white_to_black_color"
+        android:textSize="@dimen/sp_18" />
+
+
+</RelativeLayout>

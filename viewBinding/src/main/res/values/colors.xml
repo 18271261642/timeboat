@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="transparent_black">#77000000</color>
+    <color name="lable_black">#000000</color>
+    <color name="colorPrimary">#008577</color>
+    <!-- 字体颜色 -->
+    <color name="font_gray">#999999</color>
+    <color name="font_gray_dark">#666666</color>
+    <color name="font_gray_deep">#333333</color>
+    <color name="font_white">#ffffff</color>
+    <color name="font_blue">#4072ed</color>
+    <color name="font_orange_light">#fe5a50</color>
+    <color name="font_blood_red">#e14343</color>
+    <color name="font_green">#5cb85c</color>
+    <color name="font_orange">#f0ad4e</color>
+    <color name="font_black">#000000</color>
+    <color name="font_tips_red">#d9534f</color>
+</resources>

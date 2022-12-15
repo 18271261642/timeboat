@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <include android:id="@+id/back_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/common_title_bar"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/black"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/margin_size_40"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/easy_command"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="@dimen/margin_size_10"
+            android:layout_marginRight="@dimen/margin_size_10"
+            android:textColor="@color/black"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:checked="true"
+            android:layout_height="wrap_content" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|left"
+            android:gravity="center|left"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_12"
+            android:layout_marginLeft="@dimen/margin_size_20"
+            android:layout_marginRight="@dimen/margin_size_20"
+            android:text="直接填写运动类型(16进制)，不带数据包命令"
+            />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/margin_size_40"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/syn_time_command"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="@dimen/margin_size_10"
+            android:layout_marginRight="@dimen/margin_size_10"
+            android:textColor="@color/black"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_height="wrap_content" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|left"
+            android:gravity="center|left"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_12"
+            android:layout_marginLeft="@dimen/margin_size_20"
+            android:layout_marginRight="@dimen/margin_size_20"
+            android:text="手动填写完整的命令0x30"
+            />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/margin_size_40"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/complex_command"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="@dimen/margin_size_10"
+            android:layout_marginRight="@dimen/margin_size_10"
+            android:textColor="@color/black"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_height="wrap_content" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|left"
+            android:gravity="center|left"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_12"
+            android:layout_marginLeft="@dimen/margin_size_20"
+            android:layout_marginRight="@dimen/margin_size_20"
+            android:text="手动填写完整的命令"
+            />
+
+
+    </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/write_cmd"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin_size_80"
+                android:hint="输入命令.每个字节以空格分割"
+                android:importantForAutofill="no"
+                android:inputType="numberDecimal"/>
+
+            <TextView
+                android:id="@+id/write_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_size_24"
+                android:layout_marginTop="@dimen/margin_size_24"
+                android:layout_marginEnd="@dimen/margin_size_24"
+                android:layout_marginBottom="@dimen/margin_size_24"
+                android:background="@drawable/btn_corner_orange"
+                android:gravity="center"
+                android:padding="@dimen/margin_size_16"
+                android:text="写入命令"
+                android:textColor="@color/white_to_black_color"
+                android:textSize="@dimen/sp_18" />
+        </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/receive_layout"
+        android:layout_gravity="center|left"
+        android:gravity="center|left"
+        android:layout_marginTop="@dimen/margin_size_20">
+
+        <TextView
+            android:id="@+id/read_data_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="@dimen/margin_size_24"
+            android:layout_marginEnd="@dimen/margin_size_24"
+            android:background="@drawable/btn_corner_orange"
+            android:gravity="center"
+            android:padding="@dimen/margin_size_16"
+            android:text="读取数据"
+            android:textColor="@color/white_to_black_color"
+            android:textSize="@dimen/sp_18" />
+
+        <TextView
+            android:id="@+id/clean_data_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="@dimen/margin_size_24"
+            android:layout_marginEnd="@dimen/margin_size_24"
+            android:background="@drawable/btn_corner_orange"
+            android:gravity="center"
+            android:padding="@dimen/margin_size_16"
+            android:text="清除数据"
+            android:textColor="@color/white_to_black_color"
+            android:textSize="@dimen/sp_18" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="left|center"
+        android:textColor="@color/black"
+        android:textSize="@dimen/sp_20"
+        android:layout_marginLeft="@dimen/margin_size_20"
+        android:layout_marginRight="@dimen/margin_size_20"
+        android:layout_marginBottom="@dimen/margin_size_10"
+        android:layout_marginTop="@dimen/margin_size_10"
+        android:text="接受notify数据:"
+        />
+
+    <ScrollView
+        android:id="@+id/scrollMessage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/margin_size_20"
+        android:paddingBottom="@dimen/margin_size_10">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:minHeight="170dp"
+            android:background="@drawable/btn_corner_white"
+            android:layout_marginLeft="@dimen/margin_size_20"
+            android:layout_marginRight="@dimen/margin_size_20"
+            >
+
+            <TextView
+                android:id="@+id/receive_msg"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingTop="@dimen/margin_size_10"
+                android:paddingBottom="@dimen/margin_size_10"
+                android:paddingLeft="@dimen/margin_size_10"
+                android:paddingRight="@dimen/margin_size_10"
+                android:textSize="@dimen/sp_20"
+                android:textColor="@color/black"/>
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

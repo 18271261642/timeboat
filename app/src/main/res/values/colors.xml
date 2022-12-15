@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="black_grey">#16172F</color>
+    <color name="black_70">#707070</color>
+
+    <color name="black9">#999999</color>
+    <color name="gray_ab">#ABABAB</color>
+    <color name="grey_c8">#C8C8C8</color>
+
+    <color name="grey_green">#B5C1B6</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="gray_a4">#A4A3A3</color>
+    <color name="transparent_white">#00000000</color>
+    <color name="transparent">#00000000</color>
+    <color name="tra9_white">#19ffffff</color>
+    <color name="tra6_white">#66ffffff</color>
+    <color name="main_bg">#00c3c2</color>
+    <color name="colorPrimary">#33aaff</color>
+    <color name="colorPrimaryDark">#2299ee</color>
+    <color name="colorPrimaryOverlay">#cc0094ff</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="tab_button_font_normal">#B5B2B2</color>
+    <color name="tab_button_font_press">#FF6F00</color>
+    <color name="dark_orange">#FAE2D3</color>
+    <color name="boxBackground">#F7F6FA</color>
+    <color name="colour_orange">#ED702D</color>
+    <color name="colour_orange_tra2">#22ED702D</color>
+    <color name="color_red_warning">#FF7171</color>
+    <color name="color_orange_font">#F0A63A</color>
+    <color name="color_orange_bar">#FFC368</color>
+    <color name="color_dark_bar">#FF7A7A</color>
+    <color name="dark">#FF222222</color>
+    <color name="light">#FFEEEEEE</color>
+    <color name="transparent66">#66000000</color>
+    <color name="ble_main_bg">#FCF6F1</color>
+    <color name="red">#FF0000</color>
+    <color name="blood_red">#DC4F48</color>
+    <color name="sport_green">#56B65E</color>
+    <color name="indicator_first">#FFEF8A</color>
+    <color name="indicator_grey">#FAE2D3</color>
+    <color name="indicator_second">#44ECFF</color>
+    <color name="indicator_third">#A8FF51</color>
+    <color name="orange_start">#FFAA71</color>
+    <color name="orange_end">#FF5E32</color>
+    <color name="yellow_circle">#ffffef8a</color>
+    <color name="black_2d">#2D2F3B</color>
+
+
+    <color name="orange_dark">#ffffc368</color>
+    <color name="red_dark">#FF7A7A</color>
+    <color name="blue_dark">#55CBFF</color>
+    <color name="border_color">#e8e8e8</color>
+    <color name="axis_text">#333333</color>
+    <color name="label_text">#A7ADBC</color>
+    <color name="grid_color">#e8e8e8</color>
+    <color name="highLight_Color">#aa424242</color>
+    <color name="minute_blue">#5198FA</color>
+    <color name="x_axis_color">#707070</color>
+    <color name="y_axis_color">#3F4870</color>
+    <color name="sober_sleep">#F3C27F</color>
+    <color name="light_sleep">#9FA6FF</color>
+    <color name="deep_sleep">#4A6CFD</color>
+
+
+
+</resources>

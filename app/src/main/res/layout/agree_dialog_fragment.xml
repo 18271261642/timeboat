@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:background="@color/transparent66">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/btn_corner_white"
+        android:layout_marginLeft="@dimen/margin_size_40"
+        android:layout_marginRight="@dimen/margin_size_40"
+        android:layout_marginTop="@dimen/margin_size_80"
+        android:layout_marginBottom="@dimen/margin_size_80">
+
+
+        <RelativeLayout
+            android:layout_above="@+id/divide"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_marginTop="@dimen/margin_size_10"
+                android:layout_marginBottom="@dimen/margin_size_5"
+                android:id="@+id/agree_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="使用告知"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp_24"/>
+            <WebView
+                android:layout_margin="@dimen/margin_size_5"
+                android:layout_below="@+id/agree_title"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/agree_content">
+
+            </WebView>
+
+
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:id="@+id/agree_bottom_layout"
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/no_agree_tx"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:text="拒绝"
+                android:background="@drawable/white_to_gray_left_corner_btn"
+                android:textColor="@color/tab_button_font_press"
+                android:textSize="@dimen/sp_20" />
+            <View
+                android:background="@color/black9"
+                android:layout_width="@dimen/margin_size_1"
+                android:layout_height="match_parent"/>
+
+                <TextView
+                    android:id="@+id/agree_tx"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@drawable/white_to_gray_right_corner_btn"
+                    android:gravity="center"
+                    android:text="同意"
+                    android:textColor="@color/tab_button_font_press"
+                    android:textSize="@dimen/sp_20" />
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/divide"
+            android:background="@color/black9"
+            android:layout_width="match_parent"
+            android:layout_above="@+id/agree_bottom_layout"
+            android:layout_height="@dimen/margin_size_1"/>
+
+    </RelativeLayout>
+
+</FrameLayout>

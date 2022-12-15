@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="SplitEditText">
+        <attr name="setStrokeWidth" format="dimension"/>
+        <attr name="setBorderColor" format="color"/>
+        <attr name="setInputBorderColor" format="color"/>
+        <attr name="setFocusBorderColor" format="color"/>
+        <attr name="setBoxBackgroundColor" format="color"/>
+        <attr name="setBorderCornerRadius" format="dimension"/>
+        <attr name="setBorderSpacing" format="dimension"/>
+        <attr name="setMaxLength" format="integer"/>
+        <attr name="setBorderStyle" format="enum">
+            <enum name="box" value="0"/>
+            <enum name="line" value="1"/>
+        </attr>
+        <attr name="setTextStyle" format="enum">
+            <enum name="plain_text" value="0"/>
+            <enum name="cipher_text" value="1"/>
+        </attr>
+        <attr name="setCipherMask" format="string"/>
+        <attr name="setFakeBoldText" format="boolean"/>
+
+    </declare-styleable>
+
+
+    <declare-styleable name="CircleImageView">
+        <attr name="civ_border_width" format="dimension" />
+        <attr name="civ_border_color" format="color" />
+        <attr name="civ_border_overlay" format="boolean" />
+        <attr name="civ_circle_background_color" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="RoundedImageView">
+        <attr name="corner_radius" format="dimension" />
+        <attr name="border_width" format="dimension" />
+        <attr name="border_color" format="color" />
+        <attr name="mutate_background" format="boolean" />
+        <attr name="oval" format="boolean" />
+        <attr name="android:scaleType" />
+    </declare-styleable>
+
+    <declare-styleable name="MultipleProgressBar">
+        <attr name="mpb_animate" format="boolean"/>
+        <attr name="mpb_animationDuration" format="integer"/>
+        <attr name="mpb_progressSize" format="dimension"/>
+        <attr name="mpb_dividerSize" format="dimension"/>
+    </declare-styleable>
+    <declare-styleable name="MultipleProgressBarItem">
+        <attr name="mpb_progressColor" format="color"/>
+        <attr name="mpb_secondaryProgressColor" format="color"/>
+        <attr name="mpb_min" format="integer" />
+        <attr name="mpb_max" format="integer" />
+        <attr name="mpb_labelText" format="string"/>
+        <attr name="mpb_showLabel" format="boolean"/>
+        <attr name="mpb_labelGravity" format="enum">
+            <enum name="IN" value="2"/>
+            <enum name="OUT" value="1"/>
+            <enum name="adaptive" value="0"/>
+        </attr>
+        <attr name="mpb_labelColor" format="color"/>
+        <attr name="mpb_progressText" format="enum">
+            <enum name="percent" value="0"/>
+            <enum name="raf" value="1"/>
+        </attr>
+        <attr name="mpb_progressTextColor" format="color"/>
+        <attr name="mpb_showProgressText" format="boolean"/>
+        <attr name="mpb_progressTextGravity" format="enum">
+            <enum name="IN" value="1"/>
+            <enum name="OUT" value="2"/>
+            <enum name="adaptive" value="0"/>
+        </attr>
+        <attr name="mpb_secondaryProgressTextColor" format="color"/>
+        <attr name="mpb_showSecondaryProgressText" format="boolean"/>
+        <attr name="mpb_progress" format="integer" />
+        <attr name="mpb_secondaryProgress" format="integer" />
+        <attr name="mpb_orientation" format="enum">
+            <enum name="left" value="0"/>
+            <enum name="right" value="1"/>
+        </attr>
+    </declare-styleable>
+</resources>

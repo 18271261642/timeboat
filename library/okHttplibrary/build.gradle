@@ -1,0 +1,32 @@
+apply plugin: 'com.android.library'
+def cfg = rootProject.ext.android
+
+android {
+    compileSdkVersion cfg.compileSdkVersion
+//    buildToolsVersion cfg.buildToolsVersion
+    defaultConfig {
+        minSdkVersion cfg.minSdkVersion
+        targetSdkVersion cfg.targetSdkVersion
+        versionCode cfg.versionCode//更新次数
+        versionName cfg.versionName//版本号
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    //2.9.0不支持 Android 21(5.0)以下设备
+    api 'com.squareup.retrofit2:retrofit:2.4.0'
+    implementation project(':library:utilslibrary')
+//    implementation project(':library:lddatacorelibrary')
+}

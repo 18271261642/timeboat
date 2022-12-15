@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ble_main_bg">
+
+
+    <include
+        android:id="@+id/cancel_title_bar"
+        layout="@layout/common_title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cancel_title_bar"
+        android:layout_above="@+id/cancel_agree_btn">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/margin_size_15"
+                android:layout_marginBottom="@dimen/margin_size_15"
+                android:src="@mipmap/warning_icon" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="您即将注销您帐号下的所有信息"
+                android:textColor="@color/colour_orange"
+                android:layout_marginBottom="@dimen/margin_size_20"
+                android:textSize="@dimen/sp_20" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/sp_16"
+                android:textStyle="bold"
+                android:layout_marginStart="@dimen/margin_size_20"
+                android:text="安全验证"
+                android:textColor="@color/black_2d" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/sp_16"
+                android:textStyle="normal"
+                android:layout_marginTop="@dimen/margin_size_5"
+                android:layout_marginStart="@dimen/margin_size_20"
+                android:layout_marginEnd="@dimen/margin_size_20"
+                android:text="您Time Boat帐号下的服务权益处于安全状态"
+                android:textColor="@color/black_2d" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/sp_16"
+                android:textStyle="bold"
+                android:layout_marginTop="@dimen/margin_size_20"
+                android:layout_marginStart="@dimen/margin_size_20"
+                android:text="提前保留重要信息"
+                android:textColor="@color/black_2d" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/sp_16"
+                android:textStyle="normal"
+                android:layout_marginTop="@dimen/margin_size_5"
+                android:layout_marginStart="@dimen/margin_size_20"
+                android:layout_marginEnd="@dimen/margin_size_20"
+                android:text="由您本人发起，且注销前，您应自行处理相关数据及信息。"
+                android:textColor="@color/black_2d" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/sp_16"
+                android:layout_marginTop="@dimen/margin_size_20"
+                android:textStyle="bold"
+                android:layout_marginStart="@dimen/margin_size_20"
+                android:text="请您谨慎操作"
+                android:textColor="@color/black_2d" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/sp_16"
+                android:textStyle="normal"
+                android:layout_marginTop="@dimen/margin_size_5"
+                android:layout_marginStart="@dimen/margin_size_20"
+                android:layout_marginEnd="@dimen/margin_size_20"
+                android:text="您Time Boat的所有数据将会彻底删除且无法恢复"
+                android:textColor="@color/black_2d" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/sp_16"
+                android:textStyle="normal"
+                android:layout_marginTop="@dimen/margin_size_30"
+                android:layout_marginStart="@dimen/margin_size_20"
+                android:layout_marginEnd="@dimen/margin_size_20"
+                android:text="注销此服务，将不会影响到您对其他硬件"
+                android:textColor="@color/black_2d" />
+
+
+
+
+
+        </LinearLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
+
+
+    <TextView
+        android:id="@+id/cancel_agree_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="@dimen/margin_size_24"
+        android:layout_marginEnd="@dimen/margin_size_24"
+        android:layout_marginBottom="@dimen/margin_size_20"
+        android:background="@drawable/btn_corner_orange_large"
+        android:gravity="center"
+        android:padding="@dimen/margin_size_10"
+        android:text="注销账号"
+        android:textColor="@color/white_to_black_color"
+        android:textSize="@dimen/sp_18" />
+
+
+</RelativeLayout>

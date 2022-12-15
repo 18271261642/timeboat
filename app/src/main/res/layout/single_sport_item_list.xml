@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:id="@+id/sport_item_view"
+    android:layout_marginLeft="@dimen/margin_size_15"
+    android:layout_marginRight="@dimen/margin_size_15"
+    android:layout_marginTop="@dimen/margin_size_5"
+    android:layout_marginBottom="@dimen/margin_size_5"
+    android:padding="@dimen/margin_size_20"
+    android:descendantFocusability="blocksDescendants"
+    android:background="@drawable/btn_corner_white">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+        <ImageView android:id="@+id/sport_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:src="@mipmap/running_icon"
+            android:scaleType="fitXY"
+            />
+
+        <LinearLayout
+            android:id="@+id/sport_info_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/sport_icon"
+            android:layout_marginLeft="@dimen/margin_size_10"
+            android:layout_marginRight="@dimen/margin_size_65"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/sport_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text="跑步"
+                android:textSize="@dimen/sp_14"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_size_3"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:id="@+id/distance_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/orange_end"
+                    android:text="1200米"
+                    android:textSize="@dimen/sp_14"/>
+
+                <TextView
+                    android:id="@+id/use_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/orange_end"
+                    android:layout_marginLeft="@dimen/margin_size_5"
+                    android:text="56分18秒"
+                    android:textSize="@dimen/sp_14"/>
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/sport_date"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="@dimen/margin_size_10"
+            android:text=""
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black_70"
+            android:textSize="@dimen/sp_12"/>
+    </RelativeLayout>
+
+
+
+</LinearLayout>

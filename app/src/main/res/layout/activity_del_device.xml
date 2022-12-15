@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ble_main_bg">
+
+    <include
+        android:id="@+id/del_device_title_bar"
+        layout="@layout/common_title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true" />
+
+
+    <LinearLayout
+        style="@style/white_corner_radius_bg"
+        android:layout_below="@+id/del_device_title_bar">
+        <RelativeLayout
+            android:id="@+id/permission_layout"
+            style="@style/white_to_dark_btn_bg">
+
+
+            <TextView
+                android:id="@+id/permission_describe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:text="设备ID"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp_16" />
+
+            <TextView
+                android:id="@+id/device_imei"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:text=""
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp_16" />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/name_layout"
+            style="@style/white_to_dark_btn_bg">
+
+
+            <TextView
+                android:id="@+id/name_describe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:text="型号"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp_16" />
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:text=""
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp_16" />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/organization_layout"
+            style="@style/white_to_dark_btn_bg">
+
+
+            <TextView
+                android:id="@+id/organization"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:text="组织信息"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp_16" />
+
+            <TextView
+                android:id="@+id/organization_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:text="Time Boat"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp_16" />
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+    <TextView
+        android:layout_alignParentBottom="true"
+        android:id="@+id/del_device"
+        android:layout_width="match_parent"
+        android:layout_centerVertical="true"
+        android:layout_height="wrap_content"
+        android:text="删除设备"
+        android:gravity="center"
+        android:layout_marginLeft="@dimen/margin_size_20"
+        android:layout_marginRight="@dimen/margin_size_20"
+        android:layout_marginBottom="@dimen/margin_size_40"
+        android:textColor="@color/white_to_black_color"
+        android:background="@drawable/btn_corner_orange_large"
+        android:textSize="@dimen/sp_20"
+        android:padding="@dimen/margin_size_10"
+        />
+
+</RelativeLayout>

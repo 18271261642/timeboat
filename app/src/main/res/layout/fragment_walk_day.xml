@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@color/ble_main_bg"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/select_date_layout"
+        layout="@layout/select_date_layout" />
+
+    <net.sgztech.timeboat.ui.chart.SportLineChart
+        android:layout_below="@+id/select_date_layout"
+        android:layout_above="@+id/walk_data_day"
+        android:id="@+id/walk_day_chart"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+       />
+
+    <LinearLayout
+        android:id="@+id/walk_data_day"
+        style="@style/white_corner_radius_bg"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/margin_size_20"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/sport_describe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textSize="@dimen/sp_16"
+            android:textColor="@color/black"
+            android:text="总步数(步)"/>
+
+        <TextView
+            android:id="@+id/sport_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textSize="@dimen/sp_40"
+            android:textColor="@color/colour_orange"
+            android:text="---"/>
+
+
+    </LinearLayout>
+
+</RelativeLayout>

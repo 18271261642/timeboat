@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ll_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ble_main_bg"
+    tools:context=".ui.activity.ImproveInformationActivity">
+
+
+    <TextView
+        android:id="@+id/exit_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="@dimen/margin_size_24"
+        android:layout_marginEnd="@dimen/margin_size_24"
+        android:layout_marginBottom="@dimen/margin_size_24"
+        android:background="@drawable/btn_corner_orange_large"
+        android:gravity="center"
+        android:padding="@dimen/margin_size_10"
+        android:text="退出登录"
+        android:textColor="@color/white_to_black_color"
+        android:textSize="@dimen/sp_18" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/exit_btn"
+        android:layout_below="@+id/account_title_bar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/margin_size_20">
+
+            <LinearLayout
+                android:id="@+id/info_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/white_to_dark_orange"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="@dimen/margin_size_20">
+
+
+                <com.device.ui.widget.RoundedImageView
+                    android:id="@+id/header_img"
+                    android:layout_width="@dimen/margin_size_90"
+                    android:layout_height="@dimen/margin_size_90"
+                    android:gravity="center"
+                    android:scaleType="fitCenter"
+                    android:src="@mipmap/tab_mine_normal"
+                    app:corner_radius="@dimen/margin_size_20">
+
+                </com.device.ui.widget.RoundedImageView>
+
+
+                <!--        <EditText-->
+                <!--            android:id="@+id/nick_name"-->
+                <!--            android:layout_width="wrap_content"-->
+                <!--            android:layout_height="wrap_content"-->
+                <!--            android:layout_marginTop="@dimen/margin_size_5"-->
+                <!--            android:text="time boat"-->
+                <!--            android:textColor="@color/black"-->
+                <!--            android:textSize="@dimen/sp_14">-->
+
+                <!--        </EditText>-->
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/user_info_layout"
+                style="@style/white_corner_radius_bg">
+
+                <RelativeLayout
+                    android:id="@+id/nick_name_layout"
+                    android:layout_gravity="center"
+                    style="@style/white_to_dark_btn_bg_no_padding">
+
+                    <EditText
+
+                        android:id="@+id/nick_name_iv"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerInParent="true"
+                        android:layout_gravity="center|right"
+                        android:layout_marginRight="@dimen/margin_size_10"
+                        android:background="@color/white"
+                        android:gravity="center|right"
+                        android:lines="1"
+                        android:paddingTop="@dimen/margin_size_15"
+                        android:paddingBottom="@dimen/margin_size_15"
+                        android:text="Tiem Boatxxxxxxxxx"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/sp_16" />
+
+                    <TextView
+                        android:paddingTop="@dimen/margin_size_15"
+                        android:paddingBottom="@dimen/margin_size_15"
+                        android:layout_centerVertical="true"
+                        android:layout_centerHorizontal="true"
+                        android:id="@+id/nick_name_describe"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerInParent="true"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/margin_size_10"
+                        android:text="昵称："
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/sp_16" />
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:id="@+id/sex_layout"
+                    style="@style/white_to_dark_btn_bg">
+
+                    <TextView
+                        android:id="@+id/sex_describe"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/margin_size_10"
+                        android:text="性别："
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/sp_16" />
+
+                    <TextView
+                        android:id="@+id/sex"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/margin_size_10"
+                        android:text="男"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/sp_16" />
+
+
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:id="@+id/birthday_layout"
+                    style="@style/white_to_dark_btn_bg">
+
+
+                    <ImageView
+                        android:id="@+id/calendar_id"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/margin_size_10"
+                        android:src="@mipmap/icon_calendar" />
+
+                    <TextView
+                        android:id="@+id/birthday"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:layout_toLeftOf="@+id/calendar_id"
+                        android:text="2022-07-01"
+
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/sp_16" />
+
+                    <TextView
+                        android:id="@+id/birthday_describe"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/margin_size_10"
+                        android:text="生日:"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/sp_16" />
+
+
+                </RelativeLayout>
+                <!--        <View-->
+                <!--            android:layout_width="match_parent"-->
+                <!--            android:layout_height="@dimen/margin_size_1"-->
+                <!--            android:background="@color/black9">-->
+                <!--        </View>-->
+
+                <RelativeLayout
+                    android:id="@+id/height_layout"
+                    style="@style/white_to_dark_btn_bg">
+
+
+                    <TextView
+                        android:id="@+id/height_describe"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/margin_size_10"
+                        android:text="身高:"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/sp_16" />
+
+
+                    <TextView
+                        android:id="@+id/height"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/margin_size_10"
+                        android:text="170厘米"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/sp_16" />
+
+
+                </RelativeLayout>
+
+                <!--        <View-->
+                <!--            android:layout_width="match_parent"-->
+                <!--            android:layout_height="@dimen/margin_size_1"-->
+                <!--            android:background="@color/black9">-->
+                <!--        </View>-->
+
+                <RelativeLayout
+                    android:id="@+id/weight_layout"
+                    style="@style/white_to_dark_btn_bg">
+
+                    <TextView
+                        android:id="@+id/weight_describe"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/margin_size_10"
+                        android:text="体重:"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/sp_16" />
+
+                    <TextView
+                        android:id="@+id/weight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/margin_size_10"
+                        android:text="60"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/sp_16" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/phone_info_layout"
+                style="@style/white_corner_radius_bg">
+
+                <EditText
+                    android:id="@+id/phone_iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/margin_size_30"
+                    android:background="@color/white"
+                    android:enabled="false"
+                    android:inputType="phone"
+                    android:lines="1"
+                    android:text=""
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sp_16" />
+
+                <TextView
+                    android:id="@+id/phone_describe"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/margin_size_30"
+                    android:text="手机号："
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sp_16" />
+            </RelativeLayout>
+
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
+    <include
+        android:id="@+id/account_title_bar"
+        layout="@layout/common_title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true" />
+
+
+</RelativeLayout>

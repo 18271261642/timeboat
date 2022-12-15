@@ -1,0 +1,32 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
+    }
+
+}
+
+
+rootProject.name = "timeboat"
+include ':app'
+include ':rxble'
+include ':viewBinding'
+include ':library:ldlog'
+include ':library:utilslibrary'
+include ':library:okHttplibrary'
+include ':MPChartLib'
+include ':refresh-layout-kernel'
+include ':refresh-footer-classics'
+include ':refresh-drawable-paint'
+include ':refresh-header-classics'

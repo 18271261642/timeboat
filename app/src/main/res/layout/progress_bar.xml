@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.device.ui.widget.multProgressBar.MultipleProgressBar
+    xmlns:android ="http://schemas.android.com/apk/res/android"
+    xmlns:app ="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/multiple_progress_bar"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:mpb_dividerSize="@dimen/margin_size_10"
+    app:mpb_progressSize="@dimen/margin_size_6"
+    app:mpb_animate="false"
+    app:mpb_animationDuration="6000">
+
+    <com.device.ui.widget.multProgressBar.ProgressItem
+        android:id="@+id/distance_progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:mpb_orientation="left"
+        app:mpb_progress="0"
+        app:mpb_progressColor="@color/indicator_first"
+        app:mpb_secondaryProgress="100"
+        app:mpb_secondaryProgressColor="@color/indicator_grey" />
+
+    <com.device.ui.widget.multProgressBar.ProgressItem
+        android:id="@+id/calorie_progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        app:mpb_orientation="left"
+        app:mpb_progress="0"
+        app:mpb_progressColor="@color/indicator_second"
+        app:mpb_secondaryProgress="100"
+        app:mpb_secondaryProgressColor="@color/indicator_grey" />
+
+    <com.device.ui.widget.multProgressBar.ProgressItem
+        android:id="@+id/step_progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:mpb_orientation="left"
+        app:mpb_progress="0"
+        app:mpb_progressColor="@color/indicator_third"
+        app:mpb_secondaryProgress="100"
+        app:mpb_secondaryProgressColor="@color/indicator_grey" />
+</com.device.ui.widget.multProgressBar.MultipleProgressBar>

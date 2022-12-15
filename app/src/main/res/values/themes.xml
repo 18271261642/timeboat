@@ -1,0 +1,19 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.Glx" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowTitleSize">0dp</item>
+        <!--这条属性三星s9不太兼容 系统问题-->
+        <item name="android:windowIsTranslucent">false</item>
+        <!-- Customize your theme here. -->
+        <item name="android:windowDisablePreview">true</item>
+        
+        <item name="android:windowBackground">@mipmap/welecom_bg</item>
+        <item name="colorPrimary">@color/black</item>
+        <item name="colorPrimaryDark">@color/ble_main_bg</item>
+        <item name="colorAccent">@color/black</item>
+    </style>
+
+
+</resources>

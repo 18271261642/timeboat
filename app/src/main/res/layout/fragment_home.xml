@@ -1,0 +1,1111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/ble_main_bg"
+    >
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="@dimen/margin_size_20"
+                android:layout_marginTop="@dimen/margin_size_30"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tx_device"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:text="数据"
+                    android:textColor="@color/black"
+                    android:textSize="30sp" />
+
+<!--                <TextView-->
+<!--                    android:visibility="gone"-->
+<!--                    android:id="@+id/date_status"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginLeft="@dimen/margin_size_10"-->
+<!--                    android:layout_toRightOf="@+id/tx_device"-->
+<!--                    android:gravity="center_horizontal|center_vertical"-->
+<!--                    android:text="NEW"-->
+<!--                    android:textColor="@color/red"-->
+<!--                    android:textSize="12sp" />-->
+
+            </RelativeLayout>
+
+            <!--                        <Button-->
+            <!--                            android:id="@+id/bt_add"-->
+            <!--                            android:layout_width="wrap_content"-->
+            <!--                            android:layout_height="wrap_content"-->
+            <!--                            android:layout_alignParentRight="true"-->
+            <!--                            android:layout_centerHorizontal="true"-->
+            <!--                            android:layout_marginTop="@dimen/margin_size_30"-->
+            <!--                            android:layout_marginRight="12dip"-->
+            <!--                            android:background="@drawable/btn_corner_orange"-->
+            <!--                            android:text="+"-->
+            <!--                            android:textColor="@color/white"-->
+            <!--                            android:textSize="@dimen/margin_size_30" />-->
+
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/device_status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_size_20"
+            android:layout_marginBottom="@dimen/margin_size_15"
+            android:textColor="@color/black_grey"
+            android:textSize="@dimen/sp_12"
+            android:text="智能手表未连接"
+
+            />
+
+    </LinearLayout>
+
+    <com.scwang.smart.refresh.layout.SmartRefreshLayout
+        android:id="@+id/refreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:srlAccentColor="@color/black_grey"
+        app:srlPrimaryColor="@color/white"
+        app:srlEnablePreviewInEditMode="false"
+        app:srlFooterTranslationViewId="@+id/scrollView"
+        app:srlEnableLoadMoreWhenContentNotFull="false">
+
+        <com.scwang.smart.refresh.header.ClassicsHeader
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/scrollView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                android:layout_marginBottom="@dimen/margin_size_10"
+                android:background="@color/ble_main_bg">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/margin_size_15"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/sport_circle_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/sport_data_bg"
+                        android:layout_marginLeft="@dimen/margin_size_10"
+                        android:layout_marginRight="@dimen/margin_size_10"
+                        android:layout_marginBottom="@dimen/margin_size_10"
+                        android:orientation="horizontal">
+                        <FrameLayout
+                            android:id="@+id/progress_layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/margin_size_200"
+                            android:paddingLeft="@dimen/margin_size_10"
+                            android:paddingTop="@dimen/margin_size_28"
+                            android:paddingBottom="@dimen/margin_size_28"
+                            android:layout_weight="1">
+
+                            <include
+                                android:id="@+id/mul_progress"
+                                layout="@layout/progress_bar"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                />
+
+                            <LinearLayout
+                                android:id="@+id/total_step_layout"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:layout_gravity="center"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/total_step"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:layout_gravity="center"
+                                    android:textColor="@color/white"
+                                    android:text="--"
+                                    android:textSize="@dimen/sp_20"/>
+
+                                <TextView
+                                    android:id="@+id/total_step_unit"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:layout_gravity="center"
+                                    android:text="步"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/sp_12"/>
+
+                            </LinearLayout>
+
+                        </FrameLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_gravity="center|left"
+                            android:layout_marginLeft="@dimen/margin_size_10"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:id="@+id/distance_layout"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center|left"
+                                android:paddingTop="@dimen/margin_size_12"
+                                android:paddingBottom="@dimen/margin_size_12"
+                                android:orientation="horizontal">
+
+                                <View
+                                    android:layout_width="@dimen/margin_size_12"
+                                    android:layout_height="@dimen/margin_size_12"
+                                    android:layout_marginRight="@dimen/margin_size_5"
+                                    android:layout_gravity="center"
+                                    android:gravity="center"
+                                    android:background="@drawable/circle_sport"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/white"
+                                    android:text="距离(公里)"
+                                    android:textSize="@dimen/sp_14"/>
+
+                                <TextView
+                                    android:id="@+id/killo_meter_count"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="@dimen/margin_size_15"
+                                    android:textSize="@dimen/sp_14"
+                                    android:textColor="@color/white"
+                                    android:text="--"/>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/calorie_layout"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center|left"
+                                android:paddingTop="@dimen/margin_size_12"
+                                android:paddingBottom="@dimen/margin_size_12"
+                                android:orientation="horizontal">
+
+                                <View
+                                    android:layout_width="@dimen/margin_size_12"
+                                    android:layout_height="@dimen/margin_size_12"
+                                    android:layout_marginRight="@dimen/margin_size_5"
+                                    android:layout_gravity="center"
+                                    android:gravity="center"
+                                    android:background="@drawable/circle_hot"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/white"
+                                    android:text="热量(千卡)"
+                                    android:textSize="@dimen/sp_14"/>
+
+                                <TextView
+                                    android:id="@+id/hot_count"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="@dimen/margin_size_15"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/sp_14"
+                                    android:text="--"/>
+
+                            </LinearLayout>
+
+
+                            <LinearLayout
+                                android:id="@+id/step_layout"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center|left"
+                                android:paddingTop="@dimen/margin_size_12"
+                                android:paddingBottom="@dimen/margin_size_12"
+                                android:orientation="horizontal">
+
+                                <View
+                                    android:layout_width="@dimen/margin_size_12"
+                                    android:layout_height="@dimen/margin_size_12"
+                                    android:layout_marginRight="@dimen/margin_size_5"
+                                    android:layout_gravity="center"
+                                    android:gravity="center"
+                                    android:background="@drawable/circle_walk"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/white"
+                                    android:text="步数(步)"
+                                    android:textSize="@dimen/sp_14"/>
+
+                                <TextView
+                                    android:id="@+id/walk_count"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="@dimen/margin_size_15"
+                                    android:textSize="@dimen/sp_14"
+                                    android:textColor="@color/white"
+                                    android:text="--"/>
+
+                            </LinearLayout>
+
+
+
+                        </LinearLayout>
+
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/home_page_sport_height"
+                        android:layout_marginLeft="@dimen/margin_size_10"
+                        android:layout_marginRight="@dimen/margin_size_10"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:id="@+id/heart_rate_layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:padding="@dimen/margin_size_20"
+                            android:orientation="vertical"
+                            android:layout_marginRight="@dimen/margin_size_5"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:background="@drawable/btn_corner_white"
+                            android:layout_weight="1">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="left|center"
+
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:src="@mipmap/heart_count"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="@dimen/margin_size_5"
+                                    android:textColor="@color/black_grey"
+                                    android:textSize="@dimen/sp_20"
+                                    android:text="心率"/>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/margin_size_10"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/heart_min_count"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:textColor="@color/color_orange_font"
+                                    android:text="--"
+                                    android:textSize="@dimen/sp_24"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="@dimen/margin_size_8"
+                                    android:textColor="@color/black_grey"
+                                    android:text="次/分钟"
+                                    android:textSize="@dimen/sp_12"/>
+                            </LinearLayout>
+
+
+                            <ImageView
+                                android:layout_marginTop="@dimen/margin_size_3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:scaleType="fitCenter"
+                                android:src="@mipmap/heart_rate_chart_line"/>
+
+
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:id="@+id/sleep_layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:layout_weight="1"
+                            android:padding="@dimen/margin_size_20"
+                            android:layout_marginLeft="@dimen/margin_size_5"
+                            android:background="@drawable/btn_corner_white"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                >
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="left|center"
+                                    android:orientation="horizontal">
+
+                                    <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:src="@mipmap/sleep_time"/>
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="@dimen/margin_size_5"
+                                        android:textColor="@color/black_grey"
+                                        android:textSize="@dimen/sp_20"
+                                        android:text="睡眠"/>
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/margin_size_10"
+                                    android:orientation="vertical">
+
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginRight="15dip"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:textColor="@color/black_grey"
+                                            android:text="全天"
+                                            android:textSize="@dimen/sp_12"/>
+
+                                        <TextView
+                                            android:id="@+id/sleep_time"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_alignParentRight="true"
+                                            android:layout_marginLeft="@dimen/margin_size_5"
+                                            android:text="-时-分"
+                                            android:textColor="@color/orange_dark"
+                                            android:textSize="@dimen/sp_12" />
+                                    </RelativeLayout>
+                                    <View
+                                        android:layout_marginTop="@dimen/margin_size_2"
+                                        android:id="@+id/sleep_total_all_day_progress"
+                                        android:layout_width="wrap_content"
+                                        android:visibility="invisible"
+                                        android:background="@drawable/orange_yellow_shape"
+                                        android:layout_height="@dimen/margin_size_4"/>
+
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginRight="15dip"
+                                        android:layout_marginTop="@dimen/margin_size_4"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:textColor="@color/black_grey"
+                                            android:text="浅睡"
+                                            android:textSize="@dimen/sp_12"/>
+
+                                        <TextView
+                                            android:id="@+id/shallow_sleep_time"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_alignParentRight="true"
+                                            android:layout_marginLeft="@dimen/margin_size_5"
+                                            android:text="-时-分"
+                                            android:textColor="@color/red_dark"
+                                            android:textSize="@dimen/sp_12" />
+                                    </RelativeLayout>
+                                    <View
+                                        android:id="@+id/shallow_sleep_progress"
+                                        android:layout_width="match_parent"
+                                        android:visibility="invisible"
+                                        android:layout_marginTop="@dimen/margin_size_2"
+                                        android:background="@drawable/red_dark_shape"
+                                        android:layout_height="@dimen/margin_size_4"/>
+
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginRight="15dip"
+                                        android:layout_marginTop="@dimen/margin_size_4"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:textColor="@color/black_grey"
+                                            android:text="深睡"
+                                            android:textSize="@dimen/sp_12"/>
+
+                                        <TextView
+                                            android:id="@+id/deep_sleep_time"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_alignParentRight="true"
+                                            android:layout_marginLeft="@dimen/margin_size_5"
+                                            android:textColor="@color/blue_dark"
+                                            android:text="-时-分"
+                                            android:textSize="@dimen/sp_12"/>
+                                    </RelativeLayout>
+                                    <View
+                                        android:id="@+id/deep_sleep_progress"
+                                        android:layout_width="wrap_content"
+                                        android:layout_marginTop="@dimen/margin_size_2"
+                                        android:visibility="invisible"
+                                        android:background="@drawable/blue_dark_shape"
+                                        android:layout_height="@dimen/margin_size_4"/>
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/home_page_sport_height"
+                    android:layout_marginTop="@dimen/margin_size_10"
+                    android:layout_marginLeft="@dimen/margin_size_10"
+                    android:layout_marginRight="@dimen/margin_size_10"
+                    android:orientation="horizontal">
+
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="match_parent"-->
+<!--                        android:padding="@dimen/margin_size_20"-->
+<!--                        android:orientation="vertical"-->
+<!--                        android:background="@drawable/btn_corner_white"-->
+<!--                        android:layout_marginRight="@dimen/margin_size_5"-->
+<!--                        android:layout_weight="1">-->
+
+<!--                        <LinearLayout-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_gravity="left|center"-->
+
+<!--                            android:orientation="horizontal">-->
+
+<!--                            <ImageView-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:src="@mipmap/icon_location"/>-->
+
+<!--                            <TextView-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_marginLeft="@dimen/margin_size_5"-->
+<!--                                android:textColor="@color/black_grey"-->
+<!--                                android:textSize="@dimen/sp_20"-->
+<!--                                android:text="位置"/>-->
+<!--                        </LinearLayout>-->
+
+<!--                        <LinearLayout-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_marginTop="@dimen/margin_size_10"-->
+<!--                            android:orientation="horizontal">-->
+
+<!--                            <TextView-->
+<!--                                android:id="@+id/lng"-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:gravity="center"-->
+<!--                                android:textColor="@color/black_grey"-->
+<!--                                android:text="东经"-->
+<!--                                android:textSize="@dimen/sp_12"/>-->
+
+<!--                            <TextView-->
+<!--                                android:id="@+id/lng_data"-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_marginLeft="@dimen/margin_size_8"-->
+<!--                                android:textColor="@color/black_grey"-->
+<!--                                android:text="&#45;&#45;"-->
+<!--                                android:textSize="@dimen/sp_12"/>-->
+<!--                        </LinearLayout>-->
+
+<!--                        <LinearLayout-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_marginTop="@dimen/margin_size_10"-->
+<!--                            android:orientation="horizontal">-->
+
+<!--                            <TextView-->
+<!--                                android:id="@+id/lat"-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:gravity="center"-->
+<!--                                android:textColor="@color/black_grey"-->
+<!--                                android:text="北纬"-->
+<!--                                android:textSize="@dimen/sp_12"/>-->
+
+<!--                            <TextView-->
+<!--                                android:id="@+id/lat_data"-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_marginLeft="@dimen/margin_size_8"-->
+<!--                                android:textColor="@color/black_grey"-->
+<!--                                android:text="&#45;&#45;"-->
+<!--                                android:textSize="@dimen/sp_12"/>-->
+<!--                        </LinearLayout>-->
+
+
+
+<!--                        <LinearLayout-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_marginTop="@dimen/margin_size_10"-->
+<!--                            android:orientation="horizontal">-->
+<!--                            <TextView-->
+<!--                                android:id="@+id/altitude_iv"-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:gravity="center"-->
+<!--                                android:textColor="@color/black_grey"-->
+<!--                                android:text="海拔"-->
+<!--                                android:textSize="@dimen/sp_12"/>-->
+
+<!--                            <TextView-->
+<!--                                android:id="@+id/altitude_data"-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_marginLeft="@dimen/margin_size_8"-->
+<!--                                android:textColor="@color/black_grey"-->
+<!--                                android:text="&#45;&#45;"-->
+<!--                                android:textSize="@dimen/sp_12"/>-->
+<!--                        </LinearLayout>-->
+
+<!--                    </LinearLayout>-->
+
+
+                    <LinearLayout
+                        android:id="@+id/body_temperature_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:padding="@dimen/margin_size_20"
+                        android:orientation="vertical"
+                        android:background="@drawable/btn_corner_white"
+                        android:layout_marginRight="@dimen/margin_size_5"
+                        android:layout_weight="1">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left|center"
+
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@mipmap/temperator_icon"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/margin_size_5"
+                                android:textColor="@color/black_grey"
+                                android:textSize="@dimen/sp_20"
+                                android:text="温度"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin_size_10"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/temp_value"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:textColor="@color/blood_red"
+                                android:text="--"
+                                android:textSize="@dimen/sp_24"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/margin_size_8"
+                                android:textColor="@color/black_grey"
+                                android:text="摄氏度"
+                                android:textSize="@dimen/sp_12"/>
+                        </LinearLayout>
+
+                        <ImageView
+                            android:layout_marginTop="@dimen/margin_size_3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:scaleType="fitCenter"
+                            android:src="@mipmap/temprate_char_line"/>
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:id="@+id/blood_ox_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="@dimen/margin_size_5"
+                        android:padding="@dimen/margin_size_20"
+                        android:background="@drawable/btn_corner_white"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            >
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="left|center"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:src="@mipmap/blood_oxygen"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="@dimen/margin_size_5"
+                                    android:textColor="@color/black_grey"
+                                    android:textSize="@dimen/sp_20"
+                                    android:text="血氧"/>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/margin_size_10"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/blood_ox"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:textColor="@color/blood_red"
+                                    android:text="--"
+                                    android:textSize="@dimen/sp_24"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="@dimen/margin_size_8"
+                                    android:textColor="@color/black_grey"
+                                    android:text="百分比"
+                                    android:textSize="@dimen/sp_12"/>
+                            </LinearLayout>
+
+
+                            <ImageView
+                                android:layout_marginTop="@dimen/margin_size_3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:scaleType="fitCenter"
+                                android:src="@mipmap/ox_chart_line"/>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/week_sport"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/home_page_sport_height"
+                    android:padding="@dimen/margin_size_20"
+                    android:background="@drawable/btn_corner_white"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_marginLeft="@dimen/margin_size_10"
+                    android:layout_marginRight="@dimen/margin_size_10"
+                    android:layout_marginTop="@dimen/margin_size_10"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left|center"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@mipmap/week_sport" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/margin_size_5"
+                                android:text="本周运动"
+                                android:textColor="@color/black_grey"
+                                android:textSize="@dimen/sp_20" />
+                        </LinearLayout>
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="@dimen/margin_size_10"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:id="@+id/week_progress_layout"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_above="@+id/sport_describe"
+                                android:orientation="horizontal">
+
+                                <ProgressBar
+                                    android:id="@+id/monday"
+                                    style="@style/VerticalBar"
+                                    android:layout_width="@dimen/margin_size_8"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginStart="@dimen/margin_size_3"
+                                    android:max="100"
+                                    android:progress="0" />
+
+                                <ProgressBar
+                                    android:id="@+id/tuesday"
+                                    style="@style/VerticalBar"
+                                    android:layout_width="@dimen/margin_size_8"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginStart="@dimen/margin_size_10"
+                                    android:max="100"
+                                    android:progress="0" />
+
+                                <ProgressBar
+                                    android:id="@+id/wednesday"
+                                    style="@style/VerticalBar"
+                                    android:layout_width="@dimen/margin_size_8"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginStart="@dimen/margin_size_10"
+                                    android:max="100"
+                                    android:progress="0" />
+
+
+                                <ProgressBar
+                                    android:id="@+id/thursday"
+                                    style="@style/VerticalBar"
+                                    android:layout_width="@dimen/margin_size_8"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginStart="@dimen/margin_size_10"
+                                    android:max="100"
+                                    android:progress="0" />
+
+                                <ProgressBar
+                                    android:id="@+id/friday"
+                                    style="@style/VerticalBar"
+                                    android:layout_width="@dimen/margin_size_8"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginStart="@dimen/margin_size_10"
+                                    android:max="100"
+                                    android:progress="0" />
+
+                                <ProgressBar
+                                    android:id="@+id/saturday"
+                                    style="@style/VerticalBar"
+                                    android:layout_width="@dimen/margin_size_8"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginStart="@dimen/margin_size_10"
+                                    android:max="100"
+                                    android:progress="0" />
+
+                                <ProgressBar
+                                    android:id="@+id/sunday"
+                                    style="@style/VerticalBar"
+                                    android:layout_width="@dimen/margin_size_8"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginStart="@dimen/margin_size_10"
+                                    android:max="100"
+                                    android:progress="0" />
+
+
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/sport_describe"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true"
+                                android:layout_marginTop="@dimen/margin_size_10"
+                                android:text="暂无运动数据，继续加油哟~"
+                                android:textColor="@color/black_grey"
+                                android:textSize="@dimen/sp_14">
+
+                            </TextView>
+
+                        </RelativeLayout>
+
+
+
+<!--                        <ImageView-->
+<!--                            android:layout_marginTop="@dimen/margin_size_3"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:scaleType="fitCenter"-->
+<!--                            android:src="@mipmap/chart_bar"/>-->
+
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:id="@+id/week_describe"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:textColor="@color/black_grey"
+                            android:text="累计运动时长"
+                            android:textSize="@dimen/sp_12"
+                            />
+
+
+                        <TextView
+                            android:id="@+id/week_total_time"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin_size_1"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:textColor="@color/sport_green"
+                            android:text="0秒"
+                            android:textSize="@dimen/sp_20"
+                            />
+
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:id="@+id/position_lng_lat"
+                    android:layout_height="@dimen/home_page_sport_height"
+                    android:layout_marginTop="@dimen/margin_size_10"
+                    android:layout_marginLeft="@dimen/margin_size_10"
+                    android:layout_marginRight="@dimen/margin_size_10"
+                    android:weightSum="2"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:padding="@dimen/margin_size_20"
+                        android:orientation="vertical"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:background="@drawable/btn_corner_white"
+                        android:layout_marginRight="@dimen/margin_size_5"
+                        android:layout_weight="1">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left|center"
+
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@mipmap/icon_location"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/margin_size_5"
+                                android:textColor="@color/black_grey"
+                                android:textSize="@dimen/sp_20"
+                                android:text="位置"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin_size_10"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/lng_iv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:textColor="@color/black_grey"
+                                android:text="东经"
+                                android:textSize="@dimen/sp_12"/>
+
+                            <TextView
+                                android:id="@+id/lng_data"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/margin_size_8"
+                                android:textColor="@color/black_grey"
+                                android:text="--"
+                                android:textSize="@dimen/sp_12"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin_size_10"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/lat_iv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:textColor="@color/black_grey"
+                                android:text="北纬"
+                                android:textSize="@dimen/sp_12"/>
+
+                            <TextView
+                                android:id="@+id/lat_data"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/margin_size_8"
+                                android:textColor="@color/black_grey"
+                                android:text="--"
+                                android:textSize="@dimen/sp_12"/>
+                        </LinearLayout>
+
+
+
+                        <LinearLayout
+                            android:visibility="gone"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin_size_10"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/altitude_iv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:textColor="@color/black_grey"
+                                android:text="海拔"
+                                android:textSize="@dimen/sp_12"/>
+
+                            <TextView
+                                android:id="@+id/altitude_data"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/margin_size_8"
+                                android:textColor="@color/black_grey"
+                                android:text="--/--"
+                                android:textSize="@dimen/sp_12"/>
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_marginTop="@dimen/margin_size_20"
+                        android:id="@+id/banner_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scrollbars="vertical"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+                </LinearLayout>
+
+
+
+            </androidx.core.widget.NestedScrollView>
+
+
+        </FrameLayout>
+
+<!--        <com.scwang.smart.refresh.footer.ClassicsFooter-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            app:srlClassicsSpinnerStyle="FixedBehind"/>-->
+    </com.scwang.smart.refresh.layout.SmartRefreshLayout>
+
+</LinearLayout>

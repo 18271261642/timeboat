@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ble_main_bg">
+
+    <LinearLayout
+
+        android:id="@+id/back_arrow"
+        android:layout_width="@dimen/margin_size_80"
+        android:layout_height="@dimen/margin_size_40"
+        android:layout_alignParentTop="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/margin_size_10"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:src="@mipmap/back_arrow" />
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/describe_code"
+        android:layout_below="@+id/back_arrow"
+        android:layout_marginLeft="@dimen/margin_size_40"
+        android:layout_marginTop="@dimen/margin_size_35"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="输入验证码"
+        android:textSize="@dimen/sp_28"
+        android:textColor="@color/black">
+
+    </TextView>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/describe_code"
+        android:layout_marginLeft="@dimen/margin_size_40"
+        android:layout_marginTop="@dimen/margin_size_40"
+        android:layout_marginRight="@dimen/margin_size_40"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_size_15"
+            android:layout_marginBottom="@dimen/margin_size_36"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/send_phone_describe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="短信验证码已发送至"
+                android:textColor="@color/grey_c8"
+                android:textSize="@dimen/sp_12" />
+
+            <TextView
+                android:id="@+id/send_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_size_3"
+                android:text=""
+                android:textColor="@color/black_70"
+                android:textSize="@dimen/sp_14" />
+        </LinearLayout>
+
+
+
+        <com.device.ui.widget.SplitEditText
+            android:id="@+id/author_code_get"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:inputType="number"
+            app:setBorderCornerRadius="10dp"
+            app:setBorderStyle="box"
+            app:setBoxBackgroundColor="@color/boxBackground"
+            app:setFakeBoldText="true" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_size_36"
+            android:layout_marginBottom="@dimen/margin_size_10"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/time_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="60"
+                android:textColor="@color/colour_orange"
+                android:textSize="@dimen/sp_12" />
+
+            <TextView
+                android:id="@+id/repeat_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="秒后将重新获取"
+                android:textColor="@color/grey_c8"
+                android:textSize="@dimen/sp_12" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+
+
+</RelativeLayout>

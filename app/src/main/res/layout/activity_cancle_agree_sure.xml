@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ble_main_bg">
+
+
+    <include
+        android:id="@+id/cancel_title_bar"
+        layout="@layout/common_title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/cancel_layout"
+        android:layout_below="@+id/cancel_title_bar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/margin_size_15"
+                android:layout_marginBottom="@dimen/margin_size_15"
+                android:src="@mipmap/warning_icon" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="注销Time Boat帐号"
+                android:textColor="@color/color_red_warning"
+                android:textSize="@dimen/sp_20" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="@dimen/margin_size_20"
+                android:text="您将放弃以下资产或者权益"
+                android:textColor="@color/color_red_warning"
+                android:textSize="@dimen/sp_20" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_size_20"
+                android:text="该Time Boat帐号中，所有数据将被清空"
+                android:layout_marginEnd="@dimen/margin_size_20"
+                android:textColor="@color/black_2d"
+                android:textSize="@dimen/sp_16"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_size_20"
+                android:layout_marginEnd="@dimen/margin_size_20"
+                android:layout_marginTop="@dimen/margin_size_5"
+                android:text="该Time Boat帐号中，所有设备会与您当前登录的帐号解除绑定，并清除设备之前存储在服务端的数据"
+                android:textColor="@color/black_2d"
+                android:textSize="@dimen/sp_16"
+                android:textStyle="normal" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_size_20"
+                android:layout_marginEnd="@dimen/margin_size_20"
+                android:layout_marginTop="@dimen/margin_size_20"
+                android:text="当前手机中，Time Boat的缓存数据将被清除"
+                android:textColor="@color/black_2d"
+                android:textSize="@dimen/sp_16"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_size_20"
+                android:layout_marginEnd="@dimen/margin_size_20"
+                android:layout_marginTop="@dimen/margin_size_5"
+                android:text="同时，还将撤销您对Time Boat用户协议和隐私政策的同意，并退出Time Boat应用"
+                android:textColor="@color/black_2d"
+                android:textSize="@dimen/sp_16"
+                android:textStyle="normal" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+    <LinearLayout
+        android:id="@+id/cancel_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/margin_size_20"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/margin_size_20"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/check_box"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/agree"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_size_5"
+                android:text="同意并知晓"
+                android:textColor="@color/black9"
+                android:textSize="@dimen/sp_12"/>
+
+            <TextView
+                android:id="@+id/cancel_agree_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="《注销协议》"
+                android:textColor="@color/colour_orange"
+                android:textSize="@dimen/sp_12"/>
+
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/cancel_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginStart="@dimen/margin_size_24"
+            android:layout_marginEnd="@dimen/margin_size_24"
+            android:background="@drawable/btn_corner_orange_large"
+            android:gravity="center"
+            android:padding="@dimen/margin_size_10"
+            android:text="放弃注销"
+            android:textColor="@color/white_to_black_color"
+            android:textSize="@dimen/sp_18" />
+
+        <TextView
+            android:id="@+id/sure_btn"
+            android:layout_marginTop="@dimen/margin_size_10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_size_24"
+            android:layout_marginEnd="@dimen/margin_size_24"
+
+            android:background="@drawable/btn_warning_read"
+            android:gravity="center"
+            android:padding="@dimen/margin_size_10"
+            android:text="确认注销"
+            android:textColor="@color/white_to_black_color"
+            android:textSize="@dimen/sp_18" />
+
+    </LinearLayout>
+
+
+
+
+</RelativeLayout>

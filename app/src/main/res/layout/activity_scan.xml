@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ble_main_bg"
+    android:orientation="vertical">
+
+    <include android:id="@+id/add_device"
+        layout="@layout/common_title_bar"/>
+
+    <TextView
+        android:id="@+id/scan_status_describe"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/sp_16"
+        android:textColor="@color/black_70"
+        android:text="请确认您的设备处于配对状态！">
+    </TextView>
+
+    <LinearLayout
+       android:id="@+id/loading_search"
+        style="@style/white_corner_radius_bg"
+        >
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_margin="@dimen/margin_size_15"
+            android:orientation="horizontal">
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/margin_size_8"
+                android:background="@drawable/btn_corner_orange_small">
+                <ProgressBar
+                    android:id="@+id/progress_bar"
+                    android:layout_width="@dimen/margin_size_15"
+                    android:layout_height="@dimen/margin_size_15"
+                    android:indeterminate="true"
+                    android:indeterminateDrawable="@drawable/progress_icon" />
+            </FrameLayout>
+
+
+
+            <TextView
+                android:id="@+id/scan_status"
+                android:layout_marginLeft="@dimen/margin_size_10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/sp_20"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:text="正在搜索可配对的设备">
+            </TextView>
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_marginTop="@dimen/margin_size_20"
+        android:id="@+id/scan_results"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+</LinearLayout>

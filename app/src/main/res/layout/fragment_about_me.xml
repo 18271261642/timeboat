@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ble_main_bg"
+    tools:context=".ui.fragment.AboutMeFragment">
+
+
+    <LinearLayout
+        android:id="@+id/mine_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_gravity="center"
+        android:background="@drawable/white_to_dark_orange"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="@dimen/margin_size_30">
+
+        <TextView
+            android:id="@+id/mine_page"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_marginTop="@dimen/margin_size_15"
+            android:layout_marginEnd="@dimen/margin_size_30"
+            android:layout_marginBottom="@dimen/margin_size_15"
+            android:text="我的"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_30" />
+
+        <com.device.ui.widget.CircleImageView
+            android:id="@+id/header_img"
+            android:layout_width="@dimen/margin_size_90"
+            android:layout_height="@dimen/margin_size_90"
+            android:gravity="center"
+            android:src="@mipmap/tab_mine_normal"
+            app:civ_border_color="@color/grey_c8"
+            app:civ_border_width="2dp">
+
+        </com.device.ui.widget.CircleImageView>
+
+
+        <TextView
+            android:id="@+id/nick_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_size_5"
+            android:text="time boat"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_14">
+
+        </TextView>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/white_corner_radius_bg"
+        android:layout_below="@+id/mine_layout">
+
+        <RelativeLayout
+            android:id="@+id/setting_layout"
+            style="@style/white_to_dark_btn_bg">
+            <ImageView
+                android:id="@+id/setting_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:scaleType="fitXY"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/setting_icon" />
+
+            <TextView
+                android:id="@+id/setting_describe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/setting_icon"
+                android:layout_marginStart="@dimen/margin_size_10"
+                android:text="设置"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp_16" />
+
+
+
+
+
+            <ImageView
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/right_arrow"
+                />
+
+        </RelativeLayout>
+
+<!--        <View-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="@dimen/margin_size_1"-->
+<!--            android:background="@color/black9">-->
+<!--        </View>-->
+
+        <RelativeLayout
+            android:id="@+id/account_layout"
+            style="@style/white_to_dark_btn_bg">
+
+            <ImageView
+                android:id="@+id/account_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:scaleType="fitXY"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/account_icon" />
+
+            <TextView
+                android:id="@+id/account_describe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/margin_size_10"
+                android:layout_toEndOf="@+id/account_icon"
+                android:text="账号与资料"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp_16" />
+
+
+            <ImageView
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/right_arrow"
+                />
+
+
+        </RelativeLayout>
+<!--        <View-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="@dimen/margin_size_1"-->
+<!--            android:background="@color/black9">-->
+<!--        </View>-->
+
+        <RelativeLayout
+            android:id="@+id/share_layout"
+            android:visibility="gone"
+            style="@style/white_to_dark_btn_bg">
+
+            <ImageView
+                android:id="@+id/share_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:scaleType="fitXY"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/share_icon" />
+
+            <TextView
+                android:id="@+id/share_describe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/share_icon"
+                android:layout_marginStart="@dimen/margin_size_10"
+                android:text="分享给朋友"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp_16" />
+
+
+            <ImageView
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/right_arrow"
+                />
+        </RelativeLayout>
+
+<!--        <View-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="@dimen/margin_size_1"-->
+<!--            android:background="@color/black9">-->
+<!--        </View>-->
+
+        <RelativeLayout
+            android:id="@+id/about_layout"
+            style="@style/white_to_dark_btn_bg">
+
+            <ImageView
+                android:id="@+id/about_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:scaleType="fitXY"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/about_app_icon" />
+
+            <TextView
+                android:id="@+id/about_describe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@+id/about_icon"
+                android:layout_marginStart="@dimen/margin_size_10"
+                android:text="关于Time Boat"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp_16" />
+
+
+            <ImageView
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/right_arrow"
+                />
+
+
+        </RelativeLayout>
+
+<!--        <View-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="@dimen/margin_size_1"-->
+<!--            android:background="@color/black9"-->
+<!--            >-->
+<!--        </View>-->
+    </LinearLayout>
+
+</RelativeLayout>
