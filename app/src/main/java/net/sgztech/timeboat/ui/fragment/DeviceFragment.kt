@@ -16,6 +16,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.app.ActivityCompat
 import androidx.core.content.PermissionChecker.checkSelfPermission
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
@@ -80,6 +81,8 @@ class DeviceFragment : BaseFragment() {
         binding.reconnectLayout.setOnClickListener(this)
         binding.reconnect.setOnClickListener(this)
         bleManager = requireActivity().getSystemService(BLUETOOTH_SERVICE) as  BluetoothManager
+
+        activity?.let { ActivityCompat.requestPermissions(it, arrayOf(Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.ACCESS_COARSE_LOCATION,Manifest.permission.BLUETOOTH_SCAN),0x00) }
     }
 
     override fun onHiddenChanged(hidden: Boolean) {

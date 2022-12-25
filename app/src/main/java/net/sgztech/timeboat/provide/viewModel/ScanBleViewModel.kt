@@ -83,9 +83,10 @@ open class ScanBleViewModel :BaseViewModel() {
             }else{
                 try {
                     val bleNameList = SettingInfoManager.instance.bleNameList
-                    LogUtil.d(TAG , "scanBleDevices bleNameList =$bleNameList")
+                    LogUtil.d(TAG , "----scanBleDevices bleNameList =$bleNameList")
                     val nameList: Array<String> = bleNameList.split(",".toRegex()).toTypedArray()
                     if (nameList != null && nameList.isNotEmpty()) {
+                        nameList.set(0,"A8 Watch")
                         val length =nameList.size
                         val scanFilterList= arrayOfNulls<ScanFilter>(length)
                         for(i in nameList.indices ){
@@ -121,14 +122,14 @@ open class ScanBleViewModel :BaseViewModel() {
                         startScanBle()
                     }
                     .doFinally {
-                        LogUtil.d(TAG , "scan finish")
+                        LogUtil.d(TAG , "--scan finish")
                         dispose()
                     }
                     .subscribe({
                         uiStatus.what = scanBleDevicesSuccess
                         uiStatus.obj=it
                         updateUIStatus(uiStatus) }, {
-                        LogUtil.d(TAG , "scan error")
+                        LogUtil.d(TAG , "---scan error")
                         uiStatus.what = scanBleDevicesError
                         uiStatus.obj=it
                         updateUIStatus(uiStatus)

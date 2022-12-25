@@ -13,6 +13,7 @@ import com.device.ui.baseUi.baseActivity.BaseActivity
 import com.device.ui.baseUi.baseFragment.BaseFragment
 import com.device.ui.viewBinding.viewBinding
 import com.device.ui.viewModel.common.vmObserver
+import com.google.gson.Gson
 import com.imlaidian.utilslibrary.utils.LogUtil
 import com.imlaidian.utilslibrary.utils.SharedPreferencesUtil
 import com.imlaidian.utilslibrary.utils.UToast
@@ -98,7 +99,10 @@ class MainActivity : BaseActivity() {
                 LogUtil.d(TAG ,"开始")
             }
 
+
+
             onAppSuccess = {
+                LogUtil.e(TAG,"-------itName="+Gson().toJson(it))
                 if(it!=null){
                     if (it.versionExpired==1){
                         showAppExpiredDialog()

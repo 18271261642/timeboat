@@ -1,5 +1,6 @@
 package net.sgztech.timeboat.ui.activity
 
+import android.Manifest
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
@@ -10,6 +11,7 @@ import android.util.Log
 import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
+import androidx.core.app.ActivityCompat
 import androidx.core.view.isVisible
 import com.device.rxble.RxBleClient
 import com.device.rxble.exceptions.BleScanException
@@ -33,12 +35,17 @@ import net.sgztech.timeboat.util.*
 import net.sgztech.timeboat.util.requestScanPermission
 import net.sgztech.timeboat.util.showError
 
+/**
+ * 扫描页面
+ */
 class ScanActivity : BaseActivity() {
     private val TAG =ScanActivity::class.java.simpleName
     private val binding : ActivityScanBinding by viewBinding()
     private val isTestBleMode =false
     private var reconnectAddress :String?=null
     private val scanBleViewModel: ScanBleViewModel by viewModels()
+
+
     private val resultsAdapter =
         ScanResultsAdapter { result ,position->
             LogUtil.d(TAG, "onConnectToggleClick mac=" +result.bleDevice.macAddress  + ",index=" + position)
@@ -62,6 +69,8 @@ class ScanActivity : BaseActivity() {
         binding.addDevice.titleName.text= "添加设备"
         binding.addDevice.backArrow.setOnClickListener(this)
         reconnectAddress = intent.getStringExtra(MAC_Address)
+
+
     }
 
     fun isLocationEnabled(): Boolean {
@@ -75,6 +84,7 @@ class ScanActivity : BaseActivity() {
                     Settings.Secure.LOCATION_MODE) != Settings.Secure.LOCATION_MODE_OFF
             }
         } catch (e: Settings.SettingNotFoundException) {
+            e.printStackTrace()
             Log.e(TAG, "Cannot check GPS status: " + e.message, e)
         }
         return enabled
