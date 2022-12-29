@@ -76,9 +76,9 @@ class MainActivity : BaseActivity() {
         frgSwitchManager!!.add(deviceFragment).add(aboutMeFragment).add(homePageFragment).commit();
         mainBinding.glxMenuHome.isChecked = true
         selectPageRadio = mainBinding.glxMenuHome
-        if (SettingInfoManager.instance.isFirstIntoApp()) {
-            showAgree()
-        }
+//        if (SettingInfoManager.instance.isFirstIntoApp()) {
+//            showAgree()
+//        }
         netRequest = checkNetWorkPermission()
         if(netRequest){
            if(!UIUtils.isNetworkAvailable(this)) {

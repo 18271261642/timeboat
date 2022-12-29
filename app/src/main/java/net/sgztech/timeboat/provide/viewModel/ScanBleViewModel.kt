@@ -87,6 +87,8 @@ open class ScanBleViewModel :BaseViewModel() {
                     val nameList: Array<String> = bleNameList.split(",".toRegex()).toTypedArray()
                     if (nameList != null && nameList.isNotEmpty()) {
                         nameList.set(0,"A8 Watch")
+                        nameList.set(1,"S8 Watch")
+                        nameList.set(2,"Q98")
                         val length =nameList.size
                         val scanFilterList= arrayOfNulls<ScanFilter>(length)
                         for(i in nameList.indices ){
