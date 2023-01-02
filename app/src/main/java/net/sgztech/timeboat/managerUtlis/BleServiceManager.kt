@@ -256,9 +256,9 @@ class BleServiceManager() {
     }
 
     fun writeData(inputBytes: ByteArray) {
-        LogUtil.d(TAG, "write data byteArray connect = " + mBLEDevice.isConnected)
+        LogUtil.e(TAG, "write data byteArray connect = " + mBLEDevice.isConnected)
         if (mBLEDevice.isConnected) {
-            LogUtil.d(TAG, "write data byteArray = " + inputBytes.toHex())
+            LogUtil.e(TAG, "write data byteArray = " + inputBytes.toHex())
             mConnectionObservable
                 .firstOrError()
                 .flatMap {

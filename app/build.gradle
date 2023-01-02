@@ -163,7 +163,7 @@ dependencies {
     implementation project(path: ':library:utilslibrary')
 //    implementation project(':library:utilslibrary')
     kapt 'com.alibaba:arouter-compiler:1.5.1'
-    implementation 'com.tencent.mm.opensdk:wechat-sdk-android:'
+    implementation 'com.tencent.mm.opensdk:wechat-sdk-android:+'
 
 
 
