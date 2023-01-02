@@ -104,7 +104,7 @@ class DeviceFragment : BaseFragment() {
 
     private fun updateUi(){
 
-        var bleInfo = SettingInfoManager.instance.getBleModel()
+        val bleInfo = SettingInfoManager.instance.getBleModel()
         if(bleInfo!=null){
             var macAddrress =bleInfo.mac
             if(macAddrress!=null&&macAddrress.isNotEmpty()){

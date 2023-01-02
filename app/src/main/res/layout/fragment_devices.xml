@@ -63,22 +63,21 @@
                     android:textSize="@dimen/sp_20" />
 
                 <TextView
-                    android:layout_marginRight="@dimen/margin_size_20"
-                    android:layout_marginLeft="@dimen/margin_size_20"
-                    android:layout_toRightOf="@+id/device_name"
                     android:id="@+id/reconnect"
                     android:layout_width="wrap_content"
-                    android:layout_centerVertical="true"
                     android:layout_height="wrap_content"
-                    android:text="重连"
-                    android:textSize="@dimen/sp_14"
-                    android:textColor="@color/white_to_black_color"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/margin_size_20"
+                    android:layout_marginRight="@dimen/margin_size_20"
+                    android:layout_toRightOf="@+id/device_name"
                     android:background="@drawable/btn_corner_selector"
-                    android:paddingTop="@dimen/margin_size_6"
-                    android:paddingBottom="@dimen/margin_size_6"
                     android:paddingLeft="@dimen/margin_size_15"
+                    android:paddingTop="@dimen/margin_size_6"
                     android:paddingRight="@dimen/margin_size_15"
-                    />
+                    android:paddingBottom="@dimen/margin_size_6"
+                    android:text="重连"
+                    android:textColor="@color/white_to_black_color"
+                    android:textSize="@dimen/sp_14" />
             </RelativeLayout>
 
 

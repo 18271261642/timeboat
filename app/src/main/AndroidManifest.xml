@@ -42,6 +42,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Glx"
         tools:targetApi="31">
+
+        <!-- 告知 XXPermissions 当前项目已经适配了分区存储特性 -->
+        <meta-data
+            android:name="ScopedStorage"
+            android:value="true" />
+
         <activity
             android:name=".ui.activity.SplashActivity"
             android:exported="true"

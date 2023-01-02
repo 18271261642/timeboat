@@ -163,7 +163,7 @@ dependencies {
     implementation project(path: ':library:utilslibrary')
 //    implementation project(':library:utilslibrary')
     kapt 'com.alibaba:arouter-compiler:1.5.1'
-    implementation 'com.tencent.mm.opensdk:wechat-sdk-android:+'
+    implementation 'com.tencent.mm.opensdk:wechat-sdk-android:'
 
 
 
@@ -172,4 +172,6 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:4.13.2'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.13.2'
 
+    // 权限请求框架：https://github.com/getActivity/XXPermissions
+    implementation 'com.github.getActivity:XXPermissions:16.5'
 }
