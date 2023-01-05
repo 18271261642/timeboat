@@ -109,7 +109,7 @@ public class LoggerUtil {
             return;
         }
         AttributeLogWrapper value = new AttributeLogWrapper(characteristic.getUuid(), characteristic.getValue(), valueMatters);
-        RxBleLog.i(commonMacMessage(gatt) + commonCallbackMessage() + commonValueMessage(), callbackName, value);
+        RxBleLog.e(commonMacMessage(gatt) + commonCallbackMessage() + commonValueMessage(), callbackName, value);
     }
 
     public static void logCallback(String callbackName, BluetoothGatt gatt, int status, BluetoothGattDescriptor descriptor,

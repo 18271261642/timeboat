@@ -1,28 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/ble_main_bg"
-   >
+    android:orientation="vertical">
+
+
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
         android:layout_marginLeft="@dimen/margin_size_30"
         android:layout_marginTop="@dimen/margin_size_30"
         android:layout_marginBottom="@dimen/margin_size_40"
-        android:textSize="@dimen/sp_30"
-        android:text="设备"/>
+        android:text="设备"
+        android:textColor="@color/black"
+        android:textSize="@dimen/sp_30" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
 
     <RelativeLayout
         android:id="@+id/reconnect_layout"
         style="@style/white_corner_radius_bg"
         android:layout_marginLeft="@dimen/margin_size_15"
-        android:layout_marginRight="@dimen/margin_size_15"
-        >
+        android:layout_marginRight="@dimen/margin_size_15">
 
         <ImageView
             android:id="@+id/watch_pic"
@@ -41,16 +51,15 @@
             android:id="@+id/device_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
             android:layout_centerVertical="true"
-            android:gravity="center"
+            android:layout_gravity="center"
             android:layout_toRightOf="@+id/watch_pic"
+            android:gravity="center"
             android:orientation="vertical">
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                >
+                android:layout_height="wrap_content">
 
                 <TextView
                     android:id="@+id/device_name"
@@ -81,7 +90,6 @@
             </RelativeLayout>
 
 
-
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -94,21 +102,20 @@
 
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/black_70"
                     android:text="设备ID:"
-                    android:textSize="@dimen/sp_14"/>
+                    android:textColor="@color/black_70"
+                    android:textSize="@dimen/sp_14" />
 
                 <TextView
                     android:id="@+id/device_imei"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/margin_size_2"
-                    android:textColor="@color/black_70"
                     android:text=""
-                    android:textSize="@dimen/sp_14"/>
+                    android:textColor="@color/black_70"
+                    android:textSize="@dimen/sp_14" />
 
             </LinearLayout>
-
 
 
         </LinearLayout>
@@ -120,26 +127,40 @@
         android:id="@+id/add_device"
         style="@style/white_corner_radius_bg"
         android:layout_marginLeft="@dimen/margin_size_15"
-        android:layout_marginRight="@dimen/margin_size_15"
         android:layout_marginTop="@dimen/margin_size_30"
-        android:orientation="vertical"
-        >
+        android:layout_marginRight="@dimen/margin_size_15"
+        android:orientation="vertical">
 
         <TextView
-            android:layout_marginLeft="@dimen/margin_size_30"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
+            android:layout_marginLeft="@dimen/margin_size_30"
             android:text="添加设备"
-            android:textSize="@dimen/sp_20"/>
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_20" />
 
         <TextView
-            android:layout_marginLeft="@dimen/margin_size_30"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/black_70"
+            android:layout_marginLeft="@dimen/margin_size_30"
             android:text="点击链接设备同步数据"
-            android:textSize="@dimen/sp_14"/>
+            android:textColor="@color/black_70"
+            android:textSize="@dimen/sp_14" />
     </LinearLayout>
 
+        <net.sgztech.timeboat.view.DeviceSetDialView
+            android:id="@+id/deviceSetDialView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+    <net.sgztech.timeboat.view.DeviceSetVIew
+        android:id="@+id/deviceSetView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>
 </LinearLayout>

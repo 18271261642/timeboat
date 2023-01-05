@@ -259,10 +259,10 @@ public class LogUtil {
     private void debug(String tag, String msg) {;
         if (debug) {
             String message = createMessage(tag, msg);
-            Log.d(tag, message);
+            Log.e(tag, message);
         }
         if(isOpen){
-            LdLog.d(tag, msg);
+            LdLog.e(tag, msg);
         }
 
     }

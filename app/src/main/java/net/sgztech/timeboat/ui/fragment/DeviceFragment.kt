@@ -37,6 +37,7 @@ import net.sgztech.timeboat.config.Constants
 import net.sgztech.timeboat.config.Constants.Companion.DEL_DEVICES_STATUS
 import net.sgztech.timeboat.config.Constants.Companion.REPOSITORY_RESULT_TOKEN_INVALID
 import net.sgztech.timeboat.databinding.FragmentDevicesBinding
+import net.sgztech.timeboat.listeners.OnCommItemClickListener
 import net.sgztech.timeboat.managerUtlis.BleServiceManager
 import net.sgztech.timeboat.managerUtlis.SettingInfoManager
 import net.sgztech.timeboat.provide.viewModel.DeviceViewModel
@@ -49,11 +50,10 @@ import net.sgztech.timeboat.provide.viewModel.ScanBleViewModel.Companion.isConne
 import net.sgztech.timeboat.provide.viewModel.ScanBleViewModel.Companion.isConnecting
 import net.sgztech.timeboat.provide.viewModel.ScanBleViewModel.Companion.isInit
 import net.sgztech.timeboat.provide.viewModel.ScanBleViewModel.Companion.scanBleDevicesError
-import net.sgztech.timeboat.ui.activity.DelDeviceActivity
+import net.sgztech.timeboat.ui.activity.*
 import net.sgztech.timeboat.ui.activity.DelDeviceActivity.Companion.DEL_SUCCESS
-import net.sgztech.timeboat.ui.activity.MainActivity
-import net.sgztech.timeboat.ui.activity.ScanActivity
 import net.sgztech.timeboat.util.*
+import net.sgztech.timeboat.view.DeviceSetVIew
 import java.util.*
 
 
@@ -65,6 +65,10 @@ class DeviceFragment : BaseFragment() {
 //    private var hasBleDevice = false
     private var  openAutoConnect =  false
     private lateinit var bleManager :BluetoothManager
+
+    private var deviceSetView : DeviceSetVIew ?= null
+
+
     fun newInstance(): DeviceFragment {
         val fragment: DeviceFragment = DeviceFragment()
         fragment.setLabel(Constants.FRAGMENT_LABEL_DEVICES)
@@ -80,9 +84,18 @@ class DeviceFragment : BaseFragment() {
         binding.addDevice.setOnClickListener(this)
         binding.reconnectLayout.setOnClickListener(this)
         binding.reconnect.setOnClickListener(this)
+        binding.deviceSetDialView.setOnClickListener(this)
         bleManager = requireActivity().getSystemService(BLUETOOTH_SERVICE) as  BluetoothManager
 
         activity?.let { ActivityCompat.requestPermissions(it, arrayOf(Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.ACCESS_COARSE_LOCATION,Manifest.permission.BLUETOOTH_SCAN),0x00) }
+
+        deviceSetView = view?.findViewById(R.id.deviceSetView)
+        deviceSetView?.setOnSetListener { position ->
+            if (position == 0x05) {
+                startActivity(Intent(activity, AboutDeviceActivity::class.java))
+            }
+        }
+
     }
 
     override fun onHiddenChanged(hidden: Boolean) {
@@ -501,6 +514,11 @@ class DeviceFragment : BaseFragment() {
 
             R.id.reconnect_layout ->{
                 register.launch(Intent(activity, DelDeviceActivity::class.java))
+            }
+
+            //表盘中心
+            R.id.deviceSetDialView->{
+                startActivity(Intent(activity,DialActivity::class.java))
             }
         }
     }

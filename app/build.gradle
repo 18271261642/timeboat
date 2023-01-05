@@ -174,4 +174,6 @@ dependencies {
 
     // 权限请求框架：https://github.com/getActivity/XXPermissions
     implementation 'com.github.getActivity:XXPermissions:16.5'
+    //shap框架
+    implementation 'com.github.getActivity:ShapeView:8.3'
 }

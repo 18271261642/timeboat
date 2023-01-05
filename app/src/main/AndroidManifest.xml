@@ -83,6 +83,11 @@
             android:launchMode="singleTask">
         </activity>
 
+        <!--表盘页面-->
+        <activity android:name=".ui.activity.DialActivity"
+            android:screenOrientation="portrait"/>
+        <!--关于设备-->
+        <activity android:name=".ui.activity.AboutDeviceActivity"/>
 
 
         <activity
