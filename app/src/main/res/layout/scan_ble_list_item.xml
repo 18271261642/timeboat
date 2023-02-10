@@ -11,6 +11,16 @@
     <TextView android:id="@+id/device"
         android:textSize="16sp"
         android:textColor="@color/black_to_orange"
+        android:text="dddd"
+        android:textStyle="bold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView android:id="@+id/macTv"
+        android:textColor="@color/black_to_orange"
+        android:layout_marginTop="@dimen/margin_size_5"
+        android:textSize="16sp"
+        android:text="sdfd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
@@ -18,6 +28,7 @@
         android:textColor="@color/black_to_orange"
         android:layout_marginTop="@dimen/margin_size_5"
         android:textSize="16sp"
+        android:text="sdfd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 

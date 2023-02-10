@@ -2,6 +2,7 @@ package net.sgztech.timeboat.bean;
 
 /**
  * 本地表盘的bean
+ * @author Admin
  */
 public class DialBean {
 
@@ -9,6 +10,12 @@ public class DialBean {
      * 图片地址 drawable目录下的图片
      */
     private int resourceId;
+
+    /**
+     * 表盘id
+     */
+    private int dialId;
+
 
     /**
      * 是否选中
@@ -26,6 +33,14 @@ public class DialBean {
 
     public int getResourceId() {
         return resourceId;
+    }
+
+    public int getDialId() {
+        return dialId;
+    }
+
+    public void setDialId(int dialId) {
+        this.dialId = dialId;
     }
 
     public void setResourceId(int resourceId) {

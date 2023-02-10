@@ -39,6 +39,7 @@ import net.sgztech.timeboat.util.showError
  * 扫描页面
  */
 class ScanActivity : BaseActivity() {
+
     private val TAG =ScanActivity::class.java.simpleName
     private val binding : ActivityScanBinding by viewBinding()
     private val isTestBleMode =false
@@ -66,8 +67,8 @@ class ScanActivity : BaseActivity() {
     }
 
     override fun initBindView() {
-        binding.addDevice.titleName.text= "添加设备"
-        binding.addDevice.backArrow.setOnClickListener(this)
+//        binding.addDevice.titleName.text= "添加设备"
+//        binding.addDevice.backArrow.setOnClickListener(this)
         reconnectAddress = intent.getStringExtra(MAC_Address)
 
 

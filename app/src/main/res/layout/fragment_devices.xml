@@ -8,6 +8,7 @@
 
 
     <TextView
+        android:id="@+id/deviceDeviceTv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/margin_size_30"
@@ -148,6 +149,15 @@
             android:textSize="@dimen/sp_14" />
     </LinearLayout>
 
+
+        <LinearLayout
+            android:id="@+id/deviceSetLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+
         <net.sgztech.timeboat.view.DeviceSetDialView
             android:id="@+id/deviceSetDialView"
             android:layout_width="match_parent"
@@ -159,7 +169,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
-
+        </LinearLayout>
 
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

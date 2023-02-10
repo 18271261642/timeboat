@@ -32,6 +32,8 @@ import net.sgztech.timeboat.listeners.OnCommItemClickListener
      class DialViewHolder(itemView: View) : ViewHolder(itemView){
         val imageView = itemView.findViewById<ImageView>(R.id.itemDialImgView)
         val checkView = itemView.findViewById<ShapeView>(R.id.itemDialCheckedView)
+         val itemDialCheckedImgView = itemView.findViewById<ImageView>(R.id.itemDialCheckedImgView)
+         val itemDialCheckView  = itemView.findViewById<View>(R.id.itemDialCheckView)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DialViewHolder {
@@ -55,6 +57,11 @@ import net.sgztech.timeboat.listeners.OnCommItemClickListener
                 val options = RequestOptions.bitmapTransform(RoundedCorners(25))
                 Glide.with(context).load(dialBean.resourceId).apply(roundOptions).into(holder.imageView)
             }
+        }
+
+        if (dialBean != null) {
+           // holder.itemDialCheckedImgView.visibility = if(dialBean.isChecked) View.VISIBLE else View.GONE
+            holder.itemDialCheckView.visibility = if(dialBean.isChecked) View.VISIBLE else View.INVISIBLE
         }
 
         holder.itemView.setOnClickListener {

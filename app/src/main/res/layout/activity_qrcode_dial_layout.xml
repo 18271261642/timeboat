@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/ble_main_bg"
+    android:layout_height="match_parent">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_10"/>
+
+    <include layout="@layout/common_title_bar"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_20"/>
+    <com.hjq.shape.layout.ShapeLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:shape_solidColor="@color/white"
+        app:shape_radius="@dimen/dp_10"
+        android:layout_margin="@dimen/dp_10"
+        android:padding="@dimen/dp_5"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+        <TextView
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:layout_margin="@dimen/dp_5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="已选择设备:"/>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"/>
+
+
+            <com.hjq.shape.view.ShapeTextView
+                android:id="@+id/qrcodeSelectDeviceTv"
+                app:shape_solidColor="#4EDD7D"
+                app:shape_solidPressedColor="#504EDD7D"
+                android:textColor="@color/white"
+                android:paddingStart="@dimen/dp_10"
+                android:layout_gravity="center"
+                android:layout_marginRight="@dimen/dp_15"
+                android:paddingEnd="10dp"
+                app:shape_radius="@dimen/dp_10"
+                android:paddingTop="@dimen/dp_3"
+                android:paddingBottom="@dimen/dp_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="选择设备"/>
+
+
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/qrcodeSelectDeviceNameTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_20"
+            android:layout_margin="@dimen/dp_5"
+            android:text="--"/>
+
+        <TextView
+            android:id="@+id/qrcodeSelectDeviceMacTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_20"
+            android:layout_margin="@dimen/dp_5"
+            android:text="--"/>
+
+    </com.hjq.shape.layout.ShapeLinearLayout>
+
+
+
+    <com.hjq.shape.layout.ShapeLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:shape_solidColor="@color/white"
+        app:shape_radius="@dimen/dp_10"
+        android:layout_margin="@dimen/dp_10"
+        android:padding="@dimen/dp_5"
+        android:orientation="vertical">
+
+
+
+        <TextView
+            android:id="@+id/qrcodeSyncScheduleTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_15"
+            android:layout_gravity="center"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_20"
+            android:layout_margin="@dimen/dp_5"
+            android:text=""/>
+
+
+        <com.hjq.shape.view.ShapeTextView
+            android:id="@+id/qrcodeSyncBtnTv"
+            android:layout_width="match_parent"
+            android:layout_marginStart="@dimen/dp_25"
+            android:layout_marginEnd="@dimen/dp_25"
+            android:layout_marginTop="@dimen/dp_15"
+            android:layout_marginBottom="@dimen/dp_15"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            app:shape_radius="@dimen/dp_10"
+            android:padding="@dimen/dp_10"
+            app:shape_solidColor="#4EDD7D"
+            app:shape_solidPressedColor="#504EDD7D"
+            android:textColor="@color/white"
+            android:text="开始发送表盘二维码"/>
+
+    </com.hjq.shape.layout.ShapeLinearLayout>
+
+</LinearLayout>

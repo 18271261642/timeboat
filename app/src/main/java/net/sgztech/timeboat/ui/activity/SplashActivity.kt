@@ -26,6 +26,7 @@ import net.sgztech.timeboat.provide.dataModel.AdInfoModel
 import net.sgztech.timeboat.provide.viewModel.LauncherViewModel
 import net.sgztech.timeboat.ui.dialog.OnPrivacyListener
 import net.sgztech.timeboat.ui.dialog.PrivacyDialogView
+import net.sgztech.timeboat.ui.newui.QrcodeDialActivity
 
 
 class SplashActivity:BaseActivity() {
@@ -89,6 +90,8 @@ class SplashActivity:BaseActivity() {
         val handler = Handler(Looper.getMainLooper())
         handler.postDelayed(Runnable {
             val intent = Intent(this@SplashActivity ,MainActivity::class.java)
+
+//            val intent = Intent(this@SplashActivity ,QrcodeDialActivity::class.java)
             startActivity(intent)
             finish()
         }, 3000)
@@ -103,6 +106,7 @@ class SplashActivity:BaseActivity() {
             if (isAgree) {
                 SharedPreferencesUtil.getInstance().setBoolean(Constants.FIRST_INTO_APP, false)
                 val intent = Intent(this@SplashActivity ,MainActivity::class.java)
+//                val intent = Intent(this@SplashActivity ,QrcodeDialActivity::class.java)
                 startActivity(intent)
                 finish()
             } else {

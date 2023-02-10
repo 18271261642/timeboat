@@ -1,23 +1,30 @@
 package net.sgztech.timeboat.ui.activity
 
+import android.Manifest
 import android.app.AlertDialog
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.os.Build
+import android.util.DisplayMetrics
+import android.view.Gravity
 import android.view.KeyEvent
 import android.view.View
 import android.widget.RadioButton
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.core.app.ActivityCompat
 import com.device.ui.baseUi.baseActivity.ActivityStack
 import com.device.ui.baseUi.baseActivity.BaseActivity
 import com.device.ui.baseUi.baseFragment.BaseFragment
 import com.device.ui.viewBinding.viewBinding
 import com.device.ui.viewModel.common.vmObserver
 import com.google.gson.Gson
+import com.hjq.permissions.XXPermissions
 import com.imlaidian.utilslibrary.utils.LogUtil
 import com.imlaidian.utilslibrary.utils.SharedPreferencesUtil
 import com.imlaidian.utilslibrary.utils.UToast
 import net.sgztech.timeboat.R
+import net.sgztech.timeboat.TimeBoatApplication
 import net.sgztech.timeboat.config.Constants
 import net.sgztech.timeboat.config.Constants.Companion.QUITE_CANCEL_ACCOUNT
 import net.sgztech.timeboat.config.Constants.Companion.QUITE_TO_HOME_PAGE
@@ -28,10 +35,12 @@ import net.sgztech.timeboat.managerUtlis.SettingInfoManager
 import net.sgztech.timeboat.provide.dataModel.ExitAccountStatusEvent
 import net.sgztech.timeboat.provide.dataModel.LoginStatusEvent
 import net.sgztech.timeboat.provide.viewModel.MainActivityViewModel
+import net.sgztech.timeboat.ui.dialog.ShowLoclDescDialog
 import net.sgztech.timeboat.ui.fragment.*
 import net.sgztech.timeboat.ui.fragment.LoginDialogFragment.Companion.authorLoginSuccessAction
 import net.sgztech.timeboat.ui.fragment.LoginDialogFragment.Companion.bindPhoneAction
 import net.sgztech.timeboat.ui.fragment.LoginDialogFragment.Companion.improveInformationAction
+import net.sgztech.timeboat.ui.utils.MmkvUtils
 import net.sgztech.timeboat.ui.utils.UIUtils
 import net.sgztech.timeboat.util.*
 import org.greenrobot.eventbus.EventBus
@@ -85,6 +94,12 @@ class MainActivity : BaseActivity() {
                UToast.showShortToast("手机未联网,请打开网络")
            }
         }
+
+        if(ActivityCompat.checkSelfPermission(this,Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_DENIED){
+            showLocalDialog()
+        }
+
+        getLocalPermission()
     }
 
     override fun onResume() {
@@ -414,4 +429,88 @@ class MainActivity : BaseActivity() {
         }.setCancelable(false).show()
     }
 
+
+    private fun getLocalPermission(){
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.S){
+            // Android 版本大于等于 Android12 时
+            // 只包括蓝牙这部分的权限，其余的需要什么权限自己添加
+            XXPermissions.with(this).permission(arrayOf(
+                Manifest.permission.BLUETOOTH_CONNECT,
+                Manifest.permission.BLUETOOTH_SCAN,
+                Manifest.permission.BLUETOOTH_ADVERTISE)).request { permissions, all ->
+                //verifyScanFun()
+            }
+        }
+    }
+
+
+     open fun verifyScanFun(){
+
+         val mac = MmkvUtils.getConnDeviceMac()
+         if(BikeUtils.isEmpty(mac)){
+             return
+         }
+
+        //判断蓝牙是否开启
+        if(!BikeUtils.isBleEnable(this)){
+            BikeUtils.openBletooth(this)
+            return
+        }
+
+
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.S){
+            // Android 版本大于等于 Android12 时
+            // 只包括蓝牙这部分的权限，其余的需要什么权限自己添加
+            XXPermissions.with(this).permission(arrayOf(
+                Manifest.permission.BLUETOOTH_CONNECT,
+                Manifest.permission.BLUETOOTH_SCAN,
+                Manifest.permission.BLUETOOTH_ADVERTISE)).request { permissions, all ->
+                //verifyScanFun()
+            }
+        } else {
+            // Android 版本小于 Android12 及以下版本
+            XXPermissions.with(this).permission(arrayOf(
+                Manifest.permission.ACCESS_FINE_LOCATION,
+                Manifest.permission.ACCESS_COARSE_LOCATION)).request { permissions, all ->
+                verifyScanFun()
+            }
+        }
+
+
+        //判断权限
+        val isPermission = ActivityCompat.checkSelfPermission(this,
+            Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED
+        if(!isPermission){
+            XXPermissions.with(this).permission(arrayOf(
+                Manifest.permission.ACCESS_FINE_LOCATION,
+                Manifest.permission.ACCESS_COARSE_LOCATION)).request { permissions, all ->
+                verifyScanFun()
+            }
+            // ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.ACCESS_COARSE_LOCATION),0x00)
+            return
+        }
+
+        //判断蓝牙是否打开
+        val isOpenBle = BonlalaUtils.isOpenBlue(this@MainActivity)
+        if(!isOpenBle){
+            BonlalaUtils.openBluetooth(this)
+            return
+        }
+
+         TimeBoatApplication.timeBoatApplication.getConnStatusService()?.autoConnDevice(mac,false)
+    }
+
+
+    private fun showLocalDialog(){
+        val dialog = ShowLoclDescDialog(this, com.bonlala.base.R.style.BaseDialogTheme)
+        dialog.show()
+
+        val window = dialog.window
+        val windowLayout = window?.attributes
+        val metrics2: DisplayMetrics = resources.displayMetrics
+        val widthW: Int = metrics2.widthPixels
+        windowLayout?.width = widthW
+        windowLayout?.gravity = Gravity.TOP
+        window?.attributes = windowLayout
+    }
 }

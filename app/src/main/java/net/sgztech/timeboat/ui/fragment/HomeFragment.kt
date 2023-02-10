@@ -1,12 +1,17 @@
 package net.sgztech.timeboat.ui.fragment
 
+import android.content.BroadcastReceiver
+import android.content.Context
 import android.content.Intent
+import android.content.IntentFilter
 import android.content.pm.PackageManager
 import android.view.View
 import androidx.core.view.isGone
 import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
+import com.blala.blalable.BleConstant
+import com.blala.blalable.listener.OnMeasureDataListener
 import com.device.rxble.RxBleConnection
 import com.device.ui.baseUi.baseFragment.BaseFragment
 import com.device.ui.viewBinding.viewBinding
@@ -17,6 +22,7 @@ import com.scwang.smart.refresh.layout.api.RefreshLayout
 import com.scwang.smart.refresh.layout.listener.OnLoadMoreListener
 import com.scwang.smart.refresh.layout.listener.OnRefreshListener
 import net.sgztech.timeboat.R
+import net.sgztech.timeboat.TimeBoatApplication
 import net.sgztech.timeboat.config.Constants
 import net.sgztech.timeboat.config.Constants.Companion.HOME_SPORT_DATA_TYPE
 import net.sgztech.timeboat.config.Constants.Companion.MAX_CALORIE
@@ -35,6 +41,8 @@ import net.sgztech.timeboat.ui.activity.WalkDataActivity.Companion.calorieType
 import net.sgztech.timeboat.ui.activity.WalkDataActivity.Companion.distanceType
 import net.sgztech.timeboat.ui.activity.WalkDataActivity.Companion.stepCountType
 import net.sgztech.timeboat.ui.adapter.BannerListAdapter
+import net.sgztech.timeboat.ui.newui.ConnStatus
+import net.sgztech.timeboat.util.CalculateUtils
 import net.sgztech.timeboat.util.checkLocationPermission
 import net.sgztech.timeboat.util.initLocationPermission
 import org.greenrobot.eventbus.EventBus
@@ -134,20 +142,29 @@ class HomeFragment : BaseFragment(), OnRefreshListener, OnLoadMoreListener {
         updateBleStatusUi(status)
     }
 
+
+    override fun onResume() {
+        super.onResume()
+
+        val isConn = TimeBoatApplication.timeBoatApplication.connStatus == ConnStatus.CONNECTED
+        homeBinding.deviceStatus.text = if(isConn) "智能手表已连接" else "智能手表未连接"
+
+    }
+
     private fun updateBleStatusUi(status :RxBleConnection.RxBleConnectionState?){
-        when (status) {
-            RxBleConnection.RxBleConnectionState.CONNECTING -> homeBinding.deviceStatus.text =
-                "智能手表正在连接"
-            RxBleConnection.RxBleConnectionState.CONNECTED -> homeBinding.deviceStatus.text =
-                "智能手表已连接"
-            RxBleConnection.RxBleConnectionState.DISCONNECTED -> homeBinding.deviceStatus.text =
-                "智能手表已断开"
-            RxBleConnection.RxBleConnectionState.DISCONNECTING -> homeBinding.deviceStatus.text =
-                "智能手表已断开"
-            else -> {
-                homeBinding.deviceStatus.text = "智能手表未连接"
-            }
-        }
+//        when (status) {
+//            RxBleConnection.RxBleConnectionState.CONNECTING -> homeBinding.deviceStatus.text =
+//                "智能手表正在连接"
+//            RxBleConnection.RxBleConnectionState.CONNECTED -> homeBinding.deviceStatus.text =
+//                "智能手表已连接"
+//            RxBleConnection.RxBleConnectionState.DISCONNECTED -> homeBinding.deviceStatus.text =
+//                "智能手表已断开"
+//            RxBleConnection.RxBleConnectionState.DISCONNECTING -> homeBinding.deviceStatus.text =
+//                "智能手表已断开"
+//            else -> {
+//                homeBinding.deviceStatus.text = "智能手表未连接"
+//            }
+//        }
     }
 
     private fun getSportData() :Boolean{
@@ -191,6 +208,13 @@ class HomeFragment : BaseFragment(), OnRefreshListener, OnLoadMoreListener {
     }
 
     override fun initData() {
+        val intentFilter = IntentFilter()
+        intentFilter.addAction(BleConstant.BLE_CONNECTED_ACTION)
+        intentFilter.addAction(BleConstant.BLE_DIS_CONNECT_ACTION)
+        intentFilter.addAction(BleConstant.BLE_SCAN_COMPLETE_ACTION)
+        activity?.registerReceiver(broadcastReceiver,intentFilter)
+
+
         homeViewModel.homeAdListData.vmObserver(this) {
             onAppLoading = {
                 LogUtil.d(TAG, "开始")
@@ -291,6 +315,35 @@ class HomeFragment : BaseFragment(), OnRefreshListener, OnLoadMoreListener {
         configureResultList()
         getDeviceListData()
 
+
+
+        TimeBoatApplication.timeBoatApplication.getBleOperate()?.setMeasureDataListner(object : OnMeasureDataListener{
+            override fun onRealStepData(step: Int, distance: Int, kcal: Int) {
+                homeBinding.killoMeterCount.text =CalculateUtils.mToKm(distance).toString()
+                homeBinding.totalStep.text = "" + step
+                homeBinding.hotCount.text = kcal.toString()
+                homeBinding.walkCount.text = "" + step
+                val calRatio = (kcal/1000 * 100 / MAX_CALORIE).toInt()
+                val distanceRatio = (distance * 100 / MAX_DISTANCE).toInt()
+                val stepRatio = step * 100 / MAX_STEP_COUNT
+                homeBinding.mulProgress.calorieProgress.setProgress(calRatio, true)
+                homeBinding.mulProgress.distanceProgress.setProgress(distanceRatio, true)
+                homeBinding.mulProgress.stepProgress.setProgress(stepRatio, true)
+            }
+
+            override fun onMeasureHeart(heart: Int, time: Long) {
+                homeBinding.heartMinCount.text = "" + heart
+            }
+
+            override fun onMeasureBp(sBp: Int, disBp: Int, time: Long) {
+
+            }
+
+            override fun onMeasureSpo2(spo2: Int, time: Long) {
+                homeBinding.bloodOx.text = "" + spo2
+            }
+
+        })
     }
 
     private fun quiteLogin(){
@@ -575,7 +628,7 @@ class HomeFragment : BaseFragment(), OnRefreshListener, OnLoadMoreListener {
 
             R.id.week_sport -> {
                 val intent = Intent(activity, AllSportDataActivity::class.java)
-                activity!!.startActivity(intent)
+                requireActivity().startActivity(intent)
 
             }
         }
@@ -608,6 +661,7 @@ class HomeFragment : BaseFragment(), OnRefreshListener, OnLoadMoreListener {
         EventBus.getDefault().unregister(this);
 
         BleServiceManager.instance.unRegisterNotify()
+        activity?.unregisterReceiver(broadcastReceiver)
     }
 
     override fun onRequestPermissionsResult(
@@ -627,6 +681,22 @@ class HomeFragment : BaseFragment(), OnRefreshListener, OnLoadMoreListener {
             UToast.showShortToast("您没有打开定位授权，请在设置中打开")
         } else if (requestCode == Constants.PERMISSIONS_ACCESS_FINE_LOCATION && grantResults.size > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
             LocationAddressManager.instance.getLatLng()
+        }
+
+    }
+
+
+    private val broadcastReceiver : BroadcastReceiver = object : BroadcastReceiver(){
+        override fun onReceive(p0: Context?, p1: Intent?) {
+            val action = p1?.action
+            if(action == BleConstant.BLE_CONNECTED_ACTION){
+                val isConn = TimeBoatApplication.timeBoatApplication.connStatus == ConnStatus.CONNECTED
+                homeBinding.deviceStatus.text = if(isConn) "智能手表已连接" else "智能手表未连接"
+            }
+            if(action == BleConstant.BLE_DIS_CONNECT_ACTION){
+                val isConn = TimeBoatApplication.timeBoatApplication.connStatus == ConnStatus.CONNECTED
+                homeBinding.deviceStatus.text = if(isConn) "智能手表已连接" else "智能手表未连接"
+            }
         }
 
     }

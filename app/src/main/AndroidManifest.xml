@@ -5,6 +5,10 @@
 
 
 
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
@@ -160,6 +164,22 @@
             android:launchMode="singleTask">
         </activity>
 
+
+        <!--新的搜索页面-->
+        <activity android:name=".ui.newui.NewScanDeviceActivity"/>
+        <!--遥控拍照-->
+        <activity android:name=".ui.newui.CamaraActivity"
+            android:screenOrientation="portrait"/>
+        <!--单位设置-->
+        <activity android:name=".ui.activity.DeviceUnitSetActivity"/>
+        <activity android:name=".ui.newui.QrcodeDialActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".ui.newui.BleCallActivity"/>
+
+
+        <service android:name="net.sgztech.timeboat.ui.newui.ConnStatusService"/>
+
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="net.sgztech.timeboat.fileprovider"
@@ -172,6 +192,8 @@
         </provider>
 
     </application>
+
+
 
     <!--        // 在应用的 AndroidManifest.xml 添加如下<queries>标签-->
     <queries>

@@ -16,7 +16,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:shape_strokeColor="@color/red"
         app:shape_strokeWidth="2dp"
-        android:visibility="invisible"
+        android:visibility="gone"
         app:shape_radius="@dimen/margin_size_10"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -28,7 +28,31 @@
         android:id="@+id/itemDialImgView"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
+        android:src="@mipmap/ic_launcher_round"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent" />
+
+
+    <View
+        android:id="@+id/itemDialCheckView"
+        android:layout_width="@dimen/dp_30"
+        android:visibility="invisible"
+        android:layout_height="@dimen/dp_8"
+        android:layout_marginTop="@dimen/dp_5"
+        app:layout_constraintRight_toRightOf="@id/itemDialImgView"
+        app:layout_constraintTop_toBottomOf="@id/itemDialImgView"
+        app:layout_constraintLeft_toLeftOf="@id/itemDialImgView"
+        android:background="#7FFF00"/>
+
+    <ImageView
+        android:id="@+id/itemDialCheckedImgView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/ic_dial_checked_img"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
