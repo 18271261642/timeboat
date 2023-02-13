@@ -55,8 +55,8 @@ class DialActivity : BaseActivity() {
     private var adapter : DialAdapter ?= null
 
 
-    //选择的表盘下标id,从1开始
-    private var selectDialIndex = 1
+    //选择的表盘下标id,从0开始
+    private var selectDialIndex = 0
 
 
     //是否正在升级
@@ -161,7 +161,7 @@ class DialActivity : BaseActivity() {
 
     private fun sendToDial(){
         LogUtil.e(TAG,"------选择的ID="+selectDialIndex)
-        val inputStream = this.resources.openRawResource(getRawId(selectDialIndex-1))
+        val inputStream = this.resources.openRawResource(getRawId(selectDialIndex))
 
         val array = inputStream.readBytes()
         val listArray = mutableListOf<ByteArray>()
