@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/ble_main_bg"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/common_title_bar"/>
+
+
+
+    <com.hjq.shape.layout.ShapeLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:shape_radius="@dimen/dp_10"
+        android:padding="@dimen/dp_5"
+        app:shape_solidColor="@color/white"
+        android:layout_margin="@dimen/dp_10">
+
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_margin="@dimen/dp_5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <TextView
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:padding="@dimen/dp_8"
+                android:textSize="@dimen/sp_18"
+                android:textColor="@color/black90"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="开关"/>
+
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/commRemindSwitch"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/commRemindStartLayout"
+            android:layout_width="match_parent"
+            android:background="@drawable/white_to_dark_btn"
+            android:layout_margin="@dimen/dp_5"
+            android:layout_height="wrap_content">
+
+
+            <TextView
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:padding="@dimen/dp_8"
+                android:textSize="@dimen/sp_18"
+                android:textColor="@color/black90"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="开始时间"/>
+
+
+            <TextView
+                android:text="10:00"
+                android:id="@+id/comRemindStartTimeTv"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_width="wrap_content"
+                android:layout_marginEnd="@dimen/dp_15"
+                android:layout_height="wrap_content"/>
+
+
+            <ImageView
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/right_arrow"/>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/commRemindEndLayout"
+            android:background="@drawable/white_to_dark_btn"
+            android:layout_width="match_parent"
+            android:layout_margin="@dimen/dp_5"
+            android:layout_height="wrap_content">
+
+
+            <TextView
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:padding="@dimen/dp_8"
+                android:textSize="@dimen/sp_18"
+                android:textColor="@color/black90"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="结束时间"/>
+
+
+            <TextView
+                android:text="10:00"
+                android:id="@+id/comRemindEndTimeTv"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_width="wrap_content"
+                android:layout_marginEnd="@dimen/dp_15"
+                android:layout_height="wrap_content"/>
+
+
+            <ImageView
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/right_arrow"/>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.hjq.shape.layout.ShapeLinearLayout>
+
+</LinearLayout>

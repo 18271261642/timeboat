@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--文字选择器-->
+    <declare-styleable name="StringScrollPicker">
+        <!--文字渐变大小-->
+        <attr name="spv_min_text_size" format="dimension" />
+        <attr name="spv_max_text_size" format="dimension" />
+        <!--文字渐变颜色-->
+        <attr name="spv_start_color" format="color" />
+        <attr name="spv_end_color" format="color" />
+        <!--文字最大行宽-->
+        <attr name="spv_max_line_width" format="dimension" />
+        <!--文字对齐方式-->
+        <attr name="spv_alignment" format="enum">
+            <enum name="center" value="1" />
+            <enum name="left" value="2" />
+            <enum name="right" value="3" />
+        </attr>
+    </declare-styleable>
+</resources>

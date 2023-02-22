@@ -34,6 +34,16 @@ class DeviceSetVIew : LinearLayout,OnClickListener{
     //关于设备
     private var deviceAboutLayout : LinearLayout ?= null
 
+    //闹钟
+    private var deviceAlarmLayout : LinearLayout ?= null
+    //久坐
+    private var deviceLongSitLayout : LinearLayout ?= null
+    //喝水
+    private var deviceDrinkLayout : LinearLayout ?= null
+    //勿扰模式
+    private var deviceDntLayout : LinearLayout ?= null
+
+
 
 
     constructor(context: Context) : super (context){
@@ -59,6 +69,10 @@ class DeviceSetVIew : LinearLayout,OnClickListener{
         deviceUnitLayout  = view.findViewById(R.id.deviceUnitLayout)
         deviceNotifyLayout  = view.findViewById(R.id.deviceNotifyLayout)
         deviceAboutLayout  = view.findViewById(R.id.deviceAboutLayout)
+        deviceAlarmLayout = view.findViewById(R.id.deviceAlarmLayout)
+        deviceLongSitLayout = view.findViewById(R.id.deviceLongSitLayout)
+        deviceDrinkLayout = view.findViewById(R.id.deviceDrinkLayout)
+        deviceDntLayout = view.findViewById(R.id.deviceDntLayout)
 
 
         deviceFindWatchLayout?.setOnClickListener(this)
@@ -67,6 +81,12 @@ class DeviceSetVIew : LinearLayout,OnClickListener{
         deviceUnitLayout?.setOnClickListener(this)
         deviceNotifyLayout?.setOnClickListener(this)
         deviceAboutLayout?.setOnClickListener(this)
+        deviceAlarmLayout?.setOnClickListener(this)
+        deviceLongSitLayout?.setOnClickListener(this)
+        deviceDrinkLayout?.setOnClickListener(this)
+        deviceDntLayout?.setOnClickListener(this)
+
+
     }
 
     override fun onClick(v: View?) {
@@ -97,6 +117,23 @@ class DeviceSetVIew : LinearLayout,OnClickListener{
             //关于
             R.id.deviceAboutLayout->{
                 onItemClick?.onItemClick(0x05)
+            }
+
+            //闹钟
+            R.id.deviceAlarmLayout->{
+                onItemClick?.onItemClick(0x06)
+            }
+            //久坐
+            R.id.deviceLongSitLayout->{
+                onItemClick?.onItemClick(0x07)
+            }
+            //喝水
+            R.id.deviceDrinkLayout->{
+                onItemClick?.onItemClick(0x08)
+            }
+            //勿扰
+            R.id.deviceDntLayout->{
+                onItemClick?.onItemClick(0x09)
             }
         }
     }

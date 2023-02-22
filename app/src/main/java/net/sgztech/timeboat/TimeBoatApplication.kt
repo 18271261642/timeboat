@@ -16,6 +16,8 @@ import net.sgztech.timeboat.ui.newui.ConnStatus
 import net.sgztech.timeboat.ui.newui.ConnStatusService
 import net.sgztech.timeboat.ui.utils.CrashHandler
 import net.sgztech.timeboat.ui.utils.MmkvUtils
+import org.litepal.LitePal
+import org.litepal.LitePalApplication
 
 open class TimeBoatApplication : UtilsApplication() {
 
@@ -37,6 +39,7 @@ open class TimeBoatApplication : UtilsApplication() {
     override fun onCreate() {
         super.onCreate()
         timeBoatApplication = this
+        LitePal.initialize(this)
         MMKV.initialize(this)
         MmkvUtils.initMkv()
         BleApplication.initBleApplication(this)

@@ -206,12 +206,32 @@ class DeviceFragment : BaseFragment() {
                 startActivity(Intent(activity, AboutDeviceActivity::class.java))
             }
 
-
+            //闹钟
+            if(position == 0x06){
+               startActivity(Intent(activity,AlarmListActivity::class.java))
+            }
+            //久坐
+            if(position == 0x07){
+                startToActivity(0)
+            }
+            //喝水
+            if(position == 0x08){
+                startToActivity(1)
+            }
+            //勿扰
+            if(position == 0x09){
+                startToActivity(2)
+            }
         }
 
     }
 
 
+    private fun startToActivity(code : Int){
+        val intent = Intent(activity,CommRemindActivity::class.java)
+        intent.putExtra("code",code)
+        startActivity(intent)
+    }
 
     override fun onHiddenChanged(hidden: Boolean) {
         super.onHiddenChanged(hidden)

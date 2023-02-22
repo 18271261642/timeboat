@@ -175,6 +175,9 @@
         <activity android:name=".ui.newui.QrcodeDialActivity"
             android:screenOrientation="portrait"/>
 
+        <activity android:name=".ui.activity.CommRemindActivity"/>
+        <activity android:name=".ui.activity.AlarmListActivity"/>
+
         <activity android:name=".ui.newui.BleCallActivity"/>
 
 

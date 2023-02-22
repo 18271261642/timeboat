@@ -39,4 +39,21 @@
     <string name="error_no_message">No message found for reason=%d. Consider adding one.</string>
 
 
+    <string name="string_alarm">闹钟设置</string>
+    <string name="string_alarm_desc">震动过程中，触摸手环按键即可停止震动</string>
+    <string name="string_repeat">重复</string>
+    <string name="string_common_week">周</string>
+    <string name="sun">周日</string>
+    <string name="mon">周一</string>
+    <string name="tue">周二</string>
+    <string name="wed">周三</string>
+    <string name="thu">周四</string>
+    <string name="fri">周五</string>
+    <string name="sat">周六</string>
+    <string name="once">只提醒一次</string>
+    <string name="every_day">每天</string>
+    <string name="work_day">工作日</string>
+    <string name="wenkend_day">周末</string>
+    <string name="frequently_tip">请勿频繁操作</string>
+
 </resources>
