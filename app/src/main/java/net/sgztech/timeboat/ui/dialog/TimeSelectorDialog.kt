@@ -93,6 +93,16 @@ class TimeSelectorDialog : AppCompatDialog ,View.OnClickListener{
 
     }
 
+
+    //设置选中的下标
+    fun setChoosePosition(hPosition : Int,mPosition : Int){
+        hourPicker?.selectedPosition = hPosition
+        minuterPicker?.selectedPosition = mPosition
+        hourPosition = hPosition
+        minutePosition = mPosition
+    }
+
+
     override fun onClick(p0: View?) {
         val id = p0?.id
 

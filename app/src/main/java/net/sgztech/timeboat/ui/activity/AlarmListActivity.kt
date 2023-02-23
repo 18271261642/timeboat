@@ -1,5 +1,6 @@
 package net.sgztech.timeboat.ui.activity
 
+import android.util.Log
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -52,6 +53,10 @@ class AlarmListActivity : BaseActivity() {
         adapter = AlarmAdapterJava(this,list)
         recyclerView?.adapter = adapter
 
+        adapter?.setOnCommBackDataListener {
+            showDialogSelect(it)
+        }
+
         back_arrow?.setOnClickListener {
             finish()
         }
@@ -80,12 +85,13 @@ class AlarmListActivity : BaseActivity() {
             list?.addAll(alarmList)
             adapter?.notifyDataSetChanged()
         }
+        Log.e("tg","-----al="+Gson().toJson(alarmList))
     }
 
     private fun showDialogSelect(code : Int){
         val bean = list?.get(code)
         timeDialog = bean?.repeat?.toInt()?.let {
-            bean?.hour?.let { it1 ->
+            bean.hour.let { it1 ->
                 TimeDialog.Builder(this)
                     .setIgnoreSecond()
                     .isShowRepeat(true)
@@ -101,16 +107,15 @@ class AlarmListActivity : BaseActivity() {
 
                             bean.hour = hour
                             bean.minute = minute
-                            bean.repeat = timeDialog?.weekRepestValue?.toByte()!!
+                            bean.repeat = timeDialog?.weekRepestValue!!
                             bean.isOpen = true
-                            adapter?.notifyDataSetChanged()
-
-//                            adapter?.getItem(code)?.let { setChooseAlarm(it) }
+                            adapter?.notifyItemChanged(code)
+                            updateAlarm(bean)
 
                         }
 
                         override fun onClickRepeatClick() {
-//                            showWeekRepeat(alarmList.get(code).repeat)
+                            showWeekRepeat(bean.repeat.toByte())
                         }
                     })
             }
@@ -120,6 +125,9 @@ class AlarmListActivity : BaseActivity() {
     }
 
 
+    private fun updateAlarm(beean : AlarmBean){
+        DbManager.getInstance().updateAlarm(beean)
+    }
 
     private val weekList = mutableListOf<String>()
 
@@ -176,21 +184,45 @@ class AlarmListActivity : BaseActivity() {
                     }
                 }
                 //  Log.e("AA", "-----周=" + data.toString())
-//                timeDialog?.setChooseRepeat(stringBuilder.toString())
-//                saveAlarm(tempWMap)
+                timeDialog?.setChooseRepeat(stringBuilder.toString())
+                saveAlarm(tempWMap)
             }
             .create().show()
     }
 
 
+    //保存闹钟
+    private fun saveAlarm(map : HashMap<Int,Int>){
+
+        var resultRepeat = 0
+        map.forEach {
+            if(it.key == -1){
+                resultRepeat = 0
+            }else{
+                weekMap.forEach { i, i2 ->
+
+                    if(it.key == i){
+                        val value = i2
+                        resultRepeat += value
+                    }
+
+                }
+            }
+
+        }
+        timeDialog?.weekRepestValue = resultRepeat
+        timeDialog?.setChooseRepeat(getRepeat(resultRepeat))
+    }
+
+
 
     var stringBuilder = java.lang.StringBuilder()
-    private fun getRepeat(repeat: Byte): String? {
+    private fun getRepeat(repeat: Int): String? {
         val repeatStr = ""
         stringBuilder.delete(0, stringBuilder.length)
         //转bit
-        val bitStr = Utils.byteToBit(repeat)
-        val repeatArray = Utils.byteToBitOfArray(repeat)
+//        val bitStr = Utils.byteToBit(repeat)
+        val repeatArray = Utils.byteToBitOfArray(repeat.toByte())
         if (repeat.toInt() == 0) {
             return resources.getString(R.string.once)
         }
@@ -200,10 +232,10 @@ class AlarmListActivity : BaseActivity() {
             return resources.getString(R.string.every_day)
         }
         //周末
-        if ((repeat and 0xff.toByte()).toInt() == 65) {
+        if ((repeat and 0xff.toByte().toInt()) == 65) {
             return resources.getString(R.string.wenkend_day)
         }
-        if ((repeat and 0xff.toByte()).toInt() == 62) {  //工作日
+        if ((repeat and 0xff.toByte().toInt()) == 62) {  //工作日
             return resources.getString(R.string.work_day)
         }
         if (repeatArray[7].toInt() == 1) {    //周日

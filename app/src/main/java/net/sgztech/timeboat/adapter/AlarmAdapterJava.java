@@ -8,13 +8,14 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.blala.blalable.Utils;
-import com.blala.blalable.listener.WriteBackDataListener;
-import com.bonlala.base.BaseAdapter;
+
 
 import com.bonlala.widget.view.SwitchButton;
 
 import net.sgztech.timeboat.R;
 import net.sgztech.timeboat.bean.AlarmBean;
+import net.sgztech.timeboat.bean.DbManager;
+import net.sgztech.timeboat.listeners.OnCommItemClickListener;
 
 import java.util.Arrays;
 import java.util.List;
@@ -30,6 +31,12 @@ public class AlarmAdapterJava extends RecyclerView.Adapter<AlarmAdapterJava.Alar
 
   private Context context;
   private List<AlarmBean> list;
+
+  private OnCommItemClickListener onCommBackDataListener;
+
+    public void setOnCommBackDataListener(OnCommItemClickListener onCommBackDataListener) {
+        this.onCommBackDataListener = onCommBackDataListener;
+    }
 
     public AlarmAdapterJava(Context context, List<AlarmBean> list) {
         this.context = context;
@@ -48,15 +55,28 @@ public class AlarmAdapterJava extends RecyclerView.Adapter<AlarmAdapterJava.Alar
         AlarmBean alarmBean = list.get(position);
             holder.timeTv.setText(String.format("%02d",alarmBean.getHour())+":"+String.format("%02d",alarmBean.getMinute()));
         holder.switchButton.setChecked(alarmBean.isOpen());
-        holder.weekTv.setText(getRepeat(alarmBean.getRepeat()));
+        holder.weekTv.setText(getRepeat((byte) alarmBean.getRepeat()));
 
         holder.switchButton.setOnCheckedChangeListener(new SwitchButton.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(SwitchButton button, boolean checked) {
+                    if(button.isPressed()){
+                        return;
+                    }
                     alarmBean.setOpen(checked);
-
+                    DbManager.getInstance().updateAlarm(alarmBean);
                 }
             });
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int position = holder.getLayoutPosition();
+                if(onCommBackDataListener != null){
+                    onCommBackDataListener.onItemClick(position);
+                }
+            }
+        });
     }
 
     @Override
@@ -77,40 +97,12 @@ public class AlarmAdapterJava extends RecyclerView.Adapter<AlarmAdapterJava.Alar
             switchButton = itemView.findViewById(R.id.itemAlarmSwitch);
         }
 
-//        public AlarmViewHolder() {
-//            super(R.layout.item_alarm_layout);
-//            timeTv = findViewById(R.id.itemAlarmTimeTv);
-//            weekTv = findViewById(R.id.itemAlarmWeekTv);
-//            switchButton = findViewById(R.id.itemAlarmSwitch);
-//
-//
-//        }
-//
-//        @Override
-//        public void onBindView(int position) {
-//            AlarmBean alarmBean = getItem(position);
-//            timeTv.setText(String.format("%02d",alarmBean.getHour())+":"+String.format("%02d",alarmBean.getMinute()));
-//            switchButton.setChecked(alarmBean.isOpen());
-//            weekTv.setText(getRepeat(alarmBean.getRepeat()));
-//
-//            switchButton.setOnCheckedChangeListener(new SwitchButton.OnCheckedChangeListener() {
-//                @Override
-//                public void onCheckedChanged(SwitchButton button, boolean checked) {
-//                    alarmBean.setOpen(checked);
-//                    BaseApplication.getInstance().getBleOperate().setAlarmId(alarmBean, new WriteBackDataListener() {
-//                        @Override
-//                        public void backWriteData(byte[] data) {
-//
-//                        }
-//                    });
-//                }
-//            });
-//        }
     }
 
     StringBuilder stringBuilder = new StringBuilder();
     private String getRepeat(byte repeat){
         String repeatStr = "";
+        Log.e("TAG","----repeat="+repeat);
        stringBuilder.delete(0,stringBuilder.length());
         //转bit
         String bitStr = Utils.byteToBit(repeat);

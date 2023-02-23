@@ -649,8 +649,16 @@ class DeviceFragment : BaseFragment() {
         deviceSetLayout?.visibility = if (isEmpty) View.GONE else View.VISIBLE
 
         if (!isEmpty) {
-            device_name?.text = MmkvUtils.getConnDeviceName()
+            val name = MmkvUtils.getConnDeviceName()
+            device_name?.text = name
             device_imei?.text = bleMac
+
+//            if(name.toLowerCase(Locale.ROOT).contains("a15")){
+//                binding.deviceSetDialView.visibility = View.GONE
+//            }else{
+//                binding.deviceSetDialView.visibility = View.VISIBLE
+//            }
+
         }
 
         //是否已连接
@@ -658,6 +666,10 @@ class DeviceFragment : BaseFragment() {
 
         LogUtil.e(TAG, "-------连接的mac=" + bleMac + " " + isConn)
         reconnect?.visibility = if (isConn) View.GONE else View.VISIBLE
+
+
+
+        //A159没有表盘
 
     }
 

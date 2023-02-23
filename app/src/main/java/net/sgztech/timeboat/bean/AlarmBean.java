@@ -16,7 +16,7 @@ public class AlarmBean extends LitePalSupport {
     private boolean isOpen;
 
     //周期
-    private byte repeat;
+    private int repeat;
 
     //小时
     private int hour;
@@ -43,11 +43,11 @@ public class AlarmBean extends LitePalSupport {
         isOpen = open;
     }
 
-    public byte getRepeat() {
+    public int getRepeat() {
         return repeat;
     }
 
-    public void setRepeat(byte repeat) {
+    public void setRepeat(int repeat) {
         this.repeat = repeat;
     }
 

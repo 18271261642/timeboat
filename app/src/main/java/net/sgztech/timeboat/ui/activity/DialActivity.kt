@@ -203,6 +203,12 @@ class DialActivity : BaseActivity() {
         inputStream.close()
 
         LogUtil.e("TAG","------reesult="+Gson().toJson(resultList.get(0))+"\n"+Gson().toJson(resultList.get(resultList.size-1)))
+
+        if(TimeBoatApplication.timeBoatApplication.connStatus != ConnStatus.CONNECTED){
+            Toast.makeText(this@DialActivity,"设备未连接,请连接设备!",Toast.LENGTH_SHORT).show()
+          return
+        }
+
         TimeBoatApplication.timeBoatApplication.getBleOperate()?.sendTimeBoatDial(resultList,object : OnTimeBoatSyncQrcodeListener{
             override fun onSyncStatus(countSchedule: Int, current: Int) {
                 dialScheduleTv?.text = "发送进度: "+(current+1)+"/"+countSchedule
@@ -288,6 +294,7 @@ class DialActivity : BaseActivity() {
 
     //根据position获取
     private fun getRawId(position : Int) : Int{
+        LogUtil.e(TAG,"-----222-选择的ID="+position)
         if(position == 0){
             return R.raw.watch_10
         }

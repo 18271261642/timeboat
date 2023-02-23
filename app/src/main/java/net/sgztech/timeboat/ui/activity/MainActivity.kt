@@ -99,7 +99,7 @@ class MainActivity : BaseActivity() {
             showLocalDialog()
         }
 
-        getLocalPermission()
+//        getLocalPermission()
     }
 
     override fun onResume() {
@@ -472,7 +472,7 @@ class MainActivity : BaseActivity() {
             XXPermissions.with(this).permission(arrayOf(
                 Manifest.permission.ACCESS_FINE_LOCATION,
                 Manifest.permission.ACCESS_COARSE_LOCATION)).request { permissions, all ->
-                verifyScanFun()
+//                verifyScanFun()
             }
         }
 
@@ -484,7 +484,7 @@ class MainActivity : BaseActivity() {
             XXPermissions.with(this).permission(arrayOf(
                 Manifest.permission.ACCESS_FINE_LOCATION,
                 Manifest.permission.ACCESS_COARSE_LOCATION)).request { permissions, all ->
-                verifyScanFun()
+//                verifyScanFun()
             }
             // ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.ACCESS_COARSE_LOCATION),0x00)
             return
