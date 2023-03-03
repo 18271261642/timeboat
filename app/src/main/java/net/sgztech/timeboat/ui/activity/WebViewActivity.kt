@@ -43,7 +43,9 @@ class WebViewActivity :BaseActivity(){
             webUrl ="https://user-agreement.sgztech.net/"
         }else if(webViewType ==privateAgree){
             webViewBinding.webViewTitle.titleName.text ="隐私政策"
-            webUrl ="https://privacy-policy.sgztech.net"
+           // webUrl ="https://privacy-policy.sgztech.net"
+
+            webUrl =  "file:///android_asset/time_boat_privacy.html"
         }else if(webViewType ==appHistory){
             webUrl = intent.getStringExtra(Constants.WEB_VIEW_URL)!!
             webViewBinding.webViewTitle.titleName.text ="更新记录"

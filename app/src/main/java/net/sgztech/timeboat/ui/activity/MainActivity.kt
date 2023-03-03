@@ -95,9 +95,9 @@ class MainActivity : BaseActivity() {
            }
         }
 
-        if(ActivityCompat.checkSelfPermission(this,Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_DENIED){
-            showLocalDialog()
-        }
+//        if(ActivityCompat.checkSelfPermission(this,Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_DENIED){
+//            showLocalDialog()
+//        }
 
 //        getLocalPermission()
     }

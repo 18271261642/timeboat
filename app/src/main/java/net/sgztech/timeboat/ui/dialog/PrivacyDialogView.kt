@@ -63,8 +63,10 @@ class PrivacyDialogView : AppCompatDialog{
 
 
         setWebSetting()
+        val url = "file:///android_asset/time_boat_privacy.html";
 
-        webView?.loadUrl("https://privacy-policy.sgztech.net")
+        //webView?.loadUrl("https://privacy-policy.sgztech.net")
+        webView?.loadUrl(url)
     }
 
     private fun setWebSetting(){

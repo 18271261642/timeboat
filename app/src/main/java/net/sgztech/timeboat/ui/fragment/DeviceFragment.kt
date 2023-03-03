@@ -146,15 +146,15 @@ class DeviceFragment : BaseFragment() {
         bleManager = requireActivity().getSystemService(BLUETOOTH_SERVICE) as BluetoothManager
 
         activity?.let {
-            ActivityCompat.requestPermissions(
-                it,
-                arrayOf(
-                    Manifest.permission.ACCESS_FINE_LOCATION,
-                    Manifest.permission.ACCESS_COARSE_LOCATION,
-                    Manifest.permission.BLUETOOTH_SCAN
-                ),
-                0x00
-            )
+//            ActivityCompat.requestPermissions(
+//                it,
+//                arrayOf(
+//                    Manifest.permission.ACCESS_FINE_LOCATION,
+//                    Manifest.permission.ACCESS_COARSE_LOCATION,
+//                    Manifest.permission.BLUETOOTH_SCAN
+//                ),
+//                0x00
+//            )
         }
 
         deviceSetView = view?.findViewById(R.id.deviceSetView)

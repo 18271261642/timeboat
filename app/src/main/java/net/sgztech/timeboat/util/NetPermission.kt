@@ -91,10 +91,10 @@ internal fun Activity.checkLocationPermission():Boolean{
     val permissionCheck: Int =
         ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION)
     if (permissionCheck != PackageManager.PERMISSION_GRANTED) {
-        requestPermissions(
-            this, arrayOf(Manifest.permission.ACCESS_COARSE_LOCATION),
-            Constants.PERMISSIONS_ACCESS_COARSE_LOCATION
-        )
+//        requestPermissions(
+//            this, arrayOf(Manifest.permission.ACCESS_COARSE_LOCATION),
+//            Constants.PERMISSIONS_ACCESS_COARSE_LOCATION
+//        )
         return false
     }else{
         return true
@@ -121,11 +121,11 @@ internal fun Activity.initLocationPermission() {
                  * 用户彻底拒绝授予权限，一般会提示用户进入设置权限界面
                  * 第一次授权失败之后，退出App再次进入时，再此处重新调出允许权限提示框
                  */
-                ActivityCompat.requestPermissions(
-                    this,
-                    arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
-                    Constants.PERMISSIONS_ACCESS_FINE_LOCATION
-                )
+//                ActivityCompat.requestPermissions(
+//                    this,
+//                    arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
+//                    Constants.PERMISSIONS_ACCESS_FINE_LOCATION
+//                )
                 Log.d("info:", "-----get--Permissions--success--1-")
             } else {
                 /**
@@ -133,11 +133,11 @@ internal fun Activity.initLocationPermission() {
                  * 第一次安装时，调出的允许权限提示框，之后再也不提示
                  */
                 Log.d("info:", "-----get--Permissions--success--2-")
-                ActivityCompat.requestPermissions(
-                    this,
-                    arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
-                    Constants.PERMISSIONS_ACCESS_COARSE_LOCATION
-                )
+//                ActivityCompat.requestPermissions(
+//                    this,
+//                    arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
+//                    Constants.PERMISSIONS_ACCESS_COARSE_LOCATION
+//                )
             }
         } else {
             LocationAddressManager.instance.getLatLng()

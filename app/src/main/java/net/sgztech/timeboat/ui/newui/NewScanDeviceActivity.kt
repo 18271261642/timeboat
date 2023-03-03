@@ -6,7 +6,9 @@ import android.os.Build
 import android.os.Handler
 import android.os.Looper
 import android.os.Message
+import android.util.DisplayMetrics
 import android.util.Log
+import android.view.Gravity
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.app.ActivityCompat
@@ -20,6 +22,7 @@ import com.inuker.bluetooth.library.search.SearchResult
 import com.inuker.bluetooth.library.search.response.SearchResponse
 import net.sgztech.timeboat.R
 import net.sgztech.timeboat.TimeBoatApplication
+import net.sgztech.timeboat.ui.dialog.ShowLoclDescDialog
 import net.sgztech.timeboat.ui.utils.MmkvUtils
 import net.sgztech.timeboat.util.BikeUtils
 import net.sgztech.timeboat.util.BonlalaUtils
@@ -73,6 +76,7 @@ class NewScanDeviceActivity : BaseActivity(),OnItemClickListener{
         scanDeviceAdapter?.setOnItemClickListener(this)
 
 
+        showLocalDialog()
         verifyScanFun()
     }
 
@@ -85,6 +89,21 @@ class NewScanDeviceActivity : BaseActivity(),OnItemClickListener{
             finish()
         }
     }
+
+
+    private fun showLocalDialog(){
+        val dialog = ShowLoclDescDialog(this, com.bonlala.base.R.style.BaseDialogTheme)
+        dialog.show()
+
+        val window = dialog.window
+        val windowLayout = window?.attributes
+        val metrics2: DisplayMetrics = resources.displayMetrics
+        val widthW: Int = metrics2.widthPixels
+        windowLayout?.width = widthW
+        windowLayout?.gravity = Gravity.TOP
+        window?.attributes = windowLayout
+    }
+
 
     private fun verifyScanFun(){
 
